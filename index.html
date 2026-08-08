@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sergio Maestri — Escritor Argentino | Poesía, Novela y Cuento</title>
+<meta name="description" content="Sitio oficial de Sergio Maestri, escritor argentino. Poesía, novela y cuento. Biografía, obras, premios y prensa.">
+<meta name="keywords" content="Sergio Maestri, escritor argentino, poesía argentina, novelas argentinas, cuentos, literatura argentina, escritor Buenos Aires">
+<meta name="author" content="Sergio Maestri">
+<link rel="canonical" href="https://sergio-maestri-escritor.netlify.app/">
+
+<!-- Open Graph / Facebook / WhatsApp -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sergio-maestri-escritor.netlify.app/">
+<meta property="og:site_name" content="Sergio Maestri - Escritor">
+<meta property="og:title" content="Sergio Maestri — Escritor Argentino">
+<meta property="og:description" content="Sitio oficial de Sergio Maestri, escritor argentino. Poesía, novela y cuento. Biografía, obras, premios y prensa.">
+<meta property="og:image" content="https://sergio-maestri-escritor.netlify.app/img/hero2.png">
+<meta property="og:locale" content="es_AR">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://sergio-maestri-escritor.netlify.app/">
+<meta name="twitter:title" content="Sergio Maestri — Escritor Argentino">
+<meta name="twitter:description" content="Sitio oficial de Sergio Maestri, escritor argentino. Poesía, novela y cuento. Biografía, obras, premios y prensa.">
+<meta name="twitter:image" content="https://sergio-maestri-escritor.netlify.app/img/autor.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --crema:#f6f1e7; --crema-2:#efe7d6; --tinta:#2b2620; --tinta-suave:#534b40;
+    --marron:#6b4f2e; --dorado:#a9863f; --dorado-claro:#c9a86a; --linea:#d8cab0;
+    --sombra:rgba(43,38,32,.12);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'EB Garamond',Georgia,serif;color:var(--tinta);background:var(--crema);line-height:1.75;font-size:19px}
+  h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;line-height:1.2;color:var(--tinta)}
+  a{color:var(--marron);text-decoration:none;transition:color .2s}
+  a:hover{color:var(--dorado)}
+  img{max-width:100%;display:block}
+
+  header.nav{position:sticky;top:0;z-index:100;background:rgba(246,241,231,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--linea)}
+  .nav-inner{max-width:1100px;margin:0 auto;padding:.7rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+  .brand{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;letter-spacing:.04em;color:var(--tinta)}
+  .brand small{display:block;font-size:.62rem;letter-spacing:.32em;text-transform:uppercase;color:var(--dorado);font-family:'EB Garamond',serif;margin-top:-2px}
+  nav ul{list-style:none;display:flex;gap:1.4rem;flex-wrap:wrap}
+  nav a{font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-suave)}
+  nav a:hover{color:var(--marron)}
+  .menu-btn{display:none;background:none;border:none;font-size:1.6rem;color:var(--tinta);cursor:pointer}
+
+  .hero{position:relative;min-height:80vh;display:flex;align-items:center;justify-content:flex-end;text-align:left;padding:5rem clamp(1.5rem,6vw,5rem);
+    background-image:linear-gradient(to right,rgba(31,27,22,.18),rgba(31,27,22,.30) 45%,rgba(31,27,22,.78) 100%),url("img/hero2.png");
+    background-size:cover;background-position:center 30%;background-repeat:no-repeat;color:#f6f1e7}
+  .hero-inner{max-width:600px}
+  .hero small{display:block;letter-spacing:.4em;text-transform:uppercase;font-size:.8rem;color:var(--dorado-claro);margin-bottom:1.2rem}
+  .hero h1{font-size:clamp(2.8rem,7vw,5rem);color:#fff;font-weight:600}
+  .hero p{font-size:1.25rem;font-style:italic;margin-top:1.2rem;color:#f0e9da}
+  .hero .cta{display:inline-block;margin-top:2rem;padding:.7rem 1.8rem;border:1px solid var(--dorado-claro);color:#f6f1e7;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;border-radius:2px}
+  .hero .cta:hover{background:var(--dorado-claro);color:var(--tinta)}
+
+  section{padding:5rem 1.5rem}
+  .wrap{max-width:900px;margin:0 auto}
+  .wrap-wide{max-width:1100px;margin:0 auto}
+  .section-title{text-align:center;margin-bottom:3rem}
+  .section-title small{display:block;letter-spacing:.32em;text-transform:uppercase;font-size:.72rem;color:var(--dorado);margin-bottom:.5rem}
+  .section-title h2{font-size:clamp(2rem,4.5vw,2.8rem)}
+  .section-title .rule{width:60px;height:2px;background:var(--dorado);margin:1rem auto 0}
+  .alt{background:var(--crema-2)}
+
+  .presentacion .lead{display:flex;gap:2.4rem;align-items:flex-start;flex-wrap:wrap}
+  .presentacion .portrait{flex:0 0 240px;max-width:240px}
+  .presentacion .portrait img{border-radius:4px;box-shadow:0 6px 20px var(--sombra);border:4px solid #fff}
+  .presentacion .portrait figcaption{text-align:center;font-style:italic;color:var(--tinta-suave);font-size:.9rem;margin-top:.6rem}
+  .presentacion .txt{flex:1;min-width:300px}
+  .presentacion p{margin-bottom:1.3rem;font-size:1.1rem}
+  .firma{text-align:right;font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:var(--marron);font-style:italic;margin-top:1.5rem}
+  blockquote{border-left:3px solid var(--dorado);padding:.3rem 0 .3rem 1.4rem;margin:1.8rem 0;font-style:italic;color:var(--tinta-suave);font-size:1.18rem}
+
+  .bio p{margin-bottom:1.2rem}
+
+  .premios-list{list-style:none}
+  .premio{display:flex;gap:1.4rem;padding:1.1rem 0;border-bottom:1px solid var(--linea)}
+  .premio .year{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--dorado);min-width:70px;font-weight:600}
+  .premio .det strong{color:var(--tinta)}
+  .premio .det span{display:block;color:var(--tinta-suave);font-size:.95rem;font-style:italic;margin-top:.2rem}
+
+  .obras-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.8rem}
+  .obra{background:var(--crema);border:1px solid var(--linea);border-radius:4px;overflow:hidden;box-shadow:0 2px 10px var(--sombra);transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column}
+  .alt .obra{background:#fff}
+  .obra:hover{transform:translateY(-4px);box-shadow:0 8px 22px var(--sombra)}
+  .obra .cover{aspect-ratio:3/4;overflow:hidden;background:#ece3d2;cursor:pointer}
+  .obra .cover img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+  .obra:hover .cover img{transform:scale(1.04)}
+  .obra .body{padding:1.4rem}
+  .obra .tipo{display:inline-block;font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:#fff;background:var(--marron);padding:.18rem .6rem;border-radius:2px;margin-bottom:.6rem}
+  .obra h3{font-size:1.45rem;margin-bottom:.15rem}
+  .obra .meta{font-size:.85rem;color:var(--dorado);font-style:italic;margin-bottom:.7rem}
+  .obra p{font-size:.96rem;color:var(--tinta-suave)}
+
+  .otras{margin-top:3.5rem}
+  .otras h3{font-size:1.9rem;text-align:center;margin-bottom:.5rem}
+  .otras .sub{text-align:center;color:var(--tinta-suave);font-style:italic;margin-bottom:1.8rem}
+  .otras ul{list-style:none;max-width:760px;margin:0 auto 2.2rem}
+  .otras li{padding:.55rem 0;border-bottom:1px solid var(--linea);font-size:1rem;color:var(--tinta-suave)}
+  .mag-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:1rem;max-width:820px;margin:0 auto}
+  .mag-grid img{border-radius:3px;box-shadow:0 2px 8px var(--sombra);cursor:pointer;transition:transform .2s}
+  .mag-grid img:hover{transform:translateY(-3px)}
+
+  .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.9rem;margin-top:1.5rem}
+  .gallery img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:3px;box-shadow:0 2px 8px var(--sombra);cursor:pointer;transition:transform .2s}
+  .gallery img:hover{transform:scale(1.03)}
+  .gallery-note{text-align:center;font-style:italic;color:var(--tinta-suave);font-size:.92rem;margin-top:.8rem}
+  .subhead{font-family:'Cormorant Garamond',serif;font-size:1.7rem;text-align:center;color:var(--marron);margin:3rem 0 .3rem}
+
+  .prensa-block{margin-bottom:2.6rem}
+  .prensa-block h3{font-size:1.6rem;color:var(--marron);margin-bottom:1rem;padding-bottom:.4rem;border-bottom:2px solid var(--linea)}
+  .prensa-block ul{list-style:none}
+  .prensa-block li{padding:.5rem 0;padding-left:1.4rem;position:relative}
+  .prensa-block li::before{content:"\276E";position:absolute;left:0;color:var(--dorado)}
+
+  .contacto{text-align:center}
+  .contacto .mail{font-size:1.6rem;font-family:'Cormorant Garamond',serif;color:var(--marron);margin:1rem 0 2rem}
+  .social{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap}
+  .social a{display:inline-block;padding:.6rem 1.4rem;border:1px solid var(--marron);border-radius:2px;letter-spacing:.08em;text-transform:uppercase;font-size:.78rem;color:var(--marron)}
+  .social a:hover{background:var(--marron);color:var(--crema)}
+
+  footer{background:var(--tinta);color:#cabfa9;text-align:center;padding:2.5rem 1.5rem;font-size:.85rem}
+  footer .brand-f{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:#f6f1e7;letter-spacing:.06em}
+  footer a{color:var(--dorado-claro)}
+
+  /* lightbox */
+  #lb{position:fixed;inset:0;background:rgba(20,17,13,.92);display:none;align-items:center;justify-content:center;z-index:1000;padding:2rem;cursor:zoom-out}
+  #lb.open{display:flex}
+  #lb img{max-width:92vw;max-height:90vh;border-radius:4px;box-shadow:0 10px 40px rgba(0,0,0,.5)}
+  #lb .close{position:absolute;top:1rem;right:1.5rem;color:#f6f1e7;font-size:2.2rem;cursor:pointer;line-height:1;z-index:2}
+  #lb .lb-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.3);border:1px solid rgba(246,241,231,.45);color:#f6f1e7;width:50px;height:50px;border-radius:50%;font-size:1.5rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s;z-index:2}
+  #lb .lb-nav:hover{background:var(--marron);border-color:var(--marron)}
+  #lb .lb-prev{left:1.2rem}
+  #lb .lb-next{right:1.2rem}
+  #lb .lb-count{position:absolute;bottom:1.1rem;left:0;right:0;text-align:center;color:#cabfa9;font-size:.9rem;letter-spacing:.06em}
+  @media(max-width:760px){#lb .lb-nav{width:42px;height:42px;font-size:1.25rem}#lb .lb-prev{left:.4rem}#lb .lb-next{right:.4rem}}
+
+  @media(max-width:760px){
+    body{font-size:18px}
+    .hero{justify-content:center;text-align:center;padding:5rem 1.5rem;
+      background-image:linear-gradient(rgba(31,27,22,.5),rgba(31,27,22,.62)),url("img/hero2.png");
+      background-size:cover;background-position:32% 30%}
+    nav ul{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:var(--crema);border-bottom:1px solid var(--linea);padding:.5rem 1.5rem 1rem}
+    nav ul.open{display:flex}
+    nav li{padding:.5rem 0;border-bottom:1px solid var(--linea)}
+    .menu-btn{display:block}
+    section{padding:3.5rem 1.2rem}
+    .presentacion .portrait{margin:0 auto}
+  }
+</style>
+</head>
+<body>
+
+<!-- Structured Data / Schema.org JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Sergio Gabriel Maestri",
+  "givenName": "Sergio",
+  "familyName": "Maestri",
+  "additionalName": "Gabriel",
+  "url": "https://sergio-maestri-escritor.netlify.app/",
+  "image": "https://sergio-maestri-escritor.netlify.app/img/autor.jpg",
+  "jobTitle": "Escritor",
+  "description": "Escritor argentino de poesía, novelas y cuentos. Autor de obras como 'Crónicas del doctor Winter', 'La raza de bronce' y 'Los últimos días de mi padre'.",
+  "birthDate": "1965-02-17",
+  "birthPlace": {
+    "@type": "Place",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Buenos Aires",
+      "addressCountry": "AR"
+    }
+  },
+  "nationality": {
+    "@type": "Country",
+    "name": "Argentina"
+  },
+  "email": "sgmaestri@yahoo.com.ar",
+  "sameAs": [
+    "https://www.facebook.com/sergiomaestri.10",
+    "https://www.instagram.com/sergiogmaestri/"
+  ],
+  "knowsAbout": ["Poesía", "Novela", "Cuento", "Literatura Argentina", "Ficción", "Literatura Fantástica"],
+  "award": [
+    "Concurso Nacional de Poesía 'Ciudad de Morón' — 5.º premio (1983)",
+    "Concurso de Poesía Lunfarda 'Alberto Caracciolo' — 1.er premio (2018)",
+    "Concurso de Cuento Corto 'Biblioteca Popular José Ingenieros' — Mención de Honor (2021)"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Sergio Maestri — Escritor",
+  "url": "https://sergio-maestri-escritor.netlify.app/",
+  "description": "Sitio oficial de Sergio Maestri, escritor argentino. Poesía, novela y cuento. Biografía, obras, premios y prensa.",
+  "inLanguage": "es-AR",
+  "author": {
+    "@type": "Person",
+    "name": "Sergio Maestri"
+  }
+}
+</script>
+
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand">Sergio Maestri<small>Escritor</small></div>
+    <button class="menu-btn" aria-label="Menú" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+    <nav>
+      <ul id="menu">
+        <li><a href="#inicio" onclick="cerrar()">Inicio</a></li>
+        <li><a href="#biografia" onclick="cerrar()">Biografía</a></li>
+        <li><a href="#premios" onclick="cerrar()">Premios</a></li>
+        <li><a href="#obras" onclick="cerrar()">Obras</a></li>
+        <li><a href="#prensa" onclick="cerrar()">Prensa</a></li>
+        <li><a href="#blog" onclick="cerrar()">Blog</a></li>
+        <li><a href="#contacto" onclick="cerrar()">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="hero-inner">
+    <small>Poesía · Novela · Cuento</small>
+    <h1>Sergio Maestri</h1>
+    <p>«Que las musas me encuentren trabajando»</p>
+    <a class="cta" href="#obras">Conocer su obra</a>
+  </div>
+</section>
+
+<section class="presentacion">
+  <div class="wrap">
+    <div class="section-title">
+      <small>Presentación</small>
+      <h2>Mi mundo</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="lead">
+      <figure class="portrait">
+        <img src="img/autor.jpg" alt="Sergio Maestri, escritor argentino de poesía, novelas y cuentos" loading="lazy">
+        <figcaption>Sergio Maestri</figcaption>
+      </figure>
+      <div class="txt">
+        <p>La tarea del escritor es una ardua y estimulante batalla cotidiana, contra el tiempo, contra las adversidades, contra el sistema dominante, pero, sobre todo, contra nuestras propias limitaciones y contra el seductor arte del ocio, que nos estanca, nos aprisiona y nos demora en elucubraciones maravillosamente innecesarias y en pasatiempos absurdos y a veces delirantes.</p>
+        <p>Por eso escribir también es un oficio, que requiere de paciencia, trabajo y esfuerzo, en tanto aguardamos, a veces vanamente, que nos asalten las Musas, esas esquivas divinidades mitológicas, hijas de Zeus y de Mnemósine que, según los antiguos, bajaban a la tierra a susurrar ideas artísticas inspiradoras.</p>
+      </div>
+    </div>
+    <blockquote>Pero, como decía Picasso, y por las dudas, declaro: «que las musas me encuentren trabajando».</blockquote>
+    <p>La hoja en blanco es un desafío, un estímulo, una frustración, un caos mágico y potente a punto de arrasar mi universo o, quizás, a punto de despertarlo.</p>
+    <p>Encontrar la forma de llenar carillas y romper el ancestral silencio de la noche de los tiempos, es casi un acto litúrgico, un rito mágico, una alquimia maravillosa, una sanación profunda del alma.</p>
+    <p>Por eso los invito a conocer mi mundo, mi secreto y recóndito rincón.</p>
+    <p class="firma">Sergio Maestri</p>
+  </div>
+</section>
+
+<section class="alt" id="biografia">
+  <div class="wrap bio">
+    <div class="section-title">
+      <small>Trayectoria</small>
+      <h2>Biografía</h2>
+      <div class="rule"></div>
+    </div>
+    <p>Nacido en la Ciudad Autónoma de Buenos Aires, un 17 de febrero de 1965, Sergio Gabriel Maestri creció en Ituzaingó, pintoresca localidad del oeste bonaerense.</p>
+    <p>Luego de realizar sus estudios secundarios en la citada ciudad, se recibió de Técnico Superior en Administración de Recursos Humanos en Universitas —Estudios Superiores—, haciendo luego la carrera de grado de Licenciado en Administración de Recursos Humanos en la Universidad de la Marina Mercante.</p>
+    <p>Cursos de oratoria, talleres literarios, cursos en corrección ortotipográfica y de encuadernación, sumado a su Diplomatura en Diseño y Producción Editorial en la Fundación Gutenberg, lo fueron adentrando en el mundo de las comunicaciones y la literatura.</p>
+    <p>Gran lector de novelas, poética y relatos, como así también de filosofía, esoterismo y textos de administración, sus primeros pasos literarios lo condujeron, en su adolescencia, por los caminos de la poesía, publicando poemas en la revista <em>Perfiles</em> de Morón, en la revista <em>Imaginarte</em> y en el periódico de artes <em>Trama</em>, y participando de círculos de poetas y agrupaciones literarias.</p>
+    <p>En su primera juventud, descubrió el apasionante mundo del cuento fantástico, escribiendo relatos de ficción, de suspenso y de terror. Publicó poemas y cuentos de ficción en diversas antologías poéticas y de relatos.</p>
+    <p>En 1989 escribió su primera novela, <em>Proceso interior</em> y, años después, su segunda novela, <em>Crónicas del doctor Winter</em>, editada por el sello Ediciones LeE. Posteriormente publicó en 2019 su colección de cuentos <em>La raza de bronce</em> con Editorial Grupo de Escritores Argentinos, y varias obras más bajo el sello Ediciones Prometeo.</p>
+    <p>Fue galardonado con diversos premios en certámenes literarios.</p>
+  </div>
+</section>
+
+<section id="premios">
+  <div class="wrap">
+    <div class="section-title">
+      <small>Reconocimientos</small>
+      <h2>Premios</h2>
+      <div class="rule"></div>
+    </div>
+    <ul class="premios-list">
+      <li class="premio"><div class="year">1983</div><div class="det"><strong>Concurso Nacional de Poesía «Ciudad de Morón» — 5.º premio (Trofeo)</strong><span>Poema: «El Infinito»</span></div></li>
+      <li class="premio"><div class="year">1985</div><div class="det"><strong>Concurso Nacional de Cuentos Breves «Ray Bradbury» — 3.º premio (Diploma Honorífico)</strong><span>Cuento: «La última puerta»</span></div></li>
+      <li class="premio"><div class="year">1987</div><div class="det"><strong>Concurso Nacional de Poesía «Ciudad de Morón» — 8.º premio (Medalla)</strong><span>Poema: «Sobre un poeta»</span></div></li>
+      <li class="premio"><div class="year">1990</div><div class="det"><strong>1.er Concurso de Poesía y Dibujo Inédito — Diploma y publicación</strong><span>2 poemas en antología: «Reflexiones del atardecer» y «El alma de las cosas»</span></div></li>
+      <li class="premio"><div class="year">1992</div><div class="det"><strong>Concurso de Cuentos de Ciencia Ficción y Fantasía — Premio «Más Allá» 1991/1992 — Mención Honorífica</strong><span>Cuento: «El registrador de sueños»</span></div></li>
+      <li class="premio"><div class="year">1994</div><div class="det"><strong>Concurso Nacional de Sonetos «Almafuerte» — 3.º premio (Diploma y publicación)</strong><span>Soneto: «Creencias», en revista literaria</span></div></li>
+      <li class="premio"><div class="year">1996</div><div class="det"><strong>Concurso de Poesía «José Hernández» — Diploma y publicación en antología</strong><span>4 poemas: «El Infinito», «Mi sombra», «El alma de las cosas» y «Luz y sombra»</span></div></li>
+      <li class="premio"><div class="year">1997</div><div class="det"><strong>Concurso de Cuento «José Hernández» — 2.º premio (Mención) — Diplomas y publicación</strong><span>2 cuentos en antología: «Entresueños» y «El muro»</span></div></li>
+      <li class="premio"><div class="year">1998</div><div class="det"><strong>Concurso Nacional de Cuento «Umbrales del Tercer Milenio» — 3.º premio (Medalla)</strong><span>Cuento: «Espejismo»</span></div></li>
+      <li class="premio"><div class="year">2018</div><div class="det"><strong>Concurso de Poesía Lunfarda «Alberto Caracciolo» — 1.er premio (CD de tango, diploma y publicación)</strong><span>Poema: «Fulera suerte»</span></div></li>
+      <li class="premio"><div class="year">2018</div><div class="det"><strong>XXIV Certamen Internacional de Poesía y Cuentos de Amor 2018 — Diploma y publicación en antología</strong><span>Poemas: «Búsqueda» y «Yo soñé»</span></div></li>
+      <li class="premio"><div class="year">2021</div><div class="det"><strong>Concurso de Cuento Corto «Biblioteca Popular José Ingenieros» — Mención de Honor (Membresía vitalicia, socio honorífico, diploma y publicación)</strong><span>Cuento: «La bestia»</span></div></li>
+      <li class="premio"><div class="year">2021</div><div class="det"><strong>Concurso de Poesía «Floridablanca 399» — 2.º premio (diploma de honor, libro y banderín conmemorativo)</strong><span>Poema: «La escalera de Jacob»</span></div></li>
+      <li class="premio"><div class="year">2022</div><div class="det"><strong>Concurso de Poesía «Floridablanca 399» — 4.º premio (diploma de honor, libro y banderín conmemorativo)</strong><span>Poema: «VITRIOL»</span></div></li>
+    </ul>
+
+    <h3 class="subhead">Galería de diplomas y distinciones</h3>
+    <div class="gallery" id="gal-premios"></div>
+    <p class="gallery-note">Hacé clic en cualquier imagen para ampliarla y usá las flechas ◀ ▶ (o el teclado) para recorrerlas.</p>
+  </div>
+</section>
+
+<section class="alt" id="obras">
+  <div class="wrap-wide">
+    <div class="section-title">
+      <small>Bibliografía</small>
+      <h2>Obras y publicaciones</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="obras-grid">
+
+      <article class="obra">
+        <div class="cover"><img src="img/covers/momentos.jpg" alt="Portada del libro Momentos de Sergio Maestri - Poesía" loading="lazy"></div>
+        <div class="body"><span class="tipo">Poesía</span><h3>Momentos</h3><div class="meta">1987 · Ediciones Prometeo</div>
+        <p>Selección de 39 poemas líricos, sonetos, poemas pastoriles, madrigales y meditaciones. Obra de juventud signada por la comunión con la naturaleza y la introspección reflexiva, entre estructuras clásicas y verso libre.</p></div>
+      </article>
+
+      <article class="obra">
+        <div class="cover"><img src="img/covers/proceso-interior.jpg" alt="Portada del libro Proceso interior de Sergio Maestri - Novela autobiográfica sobre la dictadura argentina" loading="lazy"></div>
+        <div class="body"><span class="tipo">Novela</span><h3>Proceso interior</h3><div class="meta">1989 · Revisada 2025 · Autobiográfica</div>
+        <p>Novela de contexto histórico en cuatro partes. La historia de un adolescente durante la dictadura militar argentina, sus primeros conflictos existenciales y los avatares del amor, con la melancolía del sentir porteño.</p></div>
+      </article>
+
+      <article class="obra">
+        <div class="cover"><img src="img/covers/sobre-la-vida.jpg" alt="Portada del libro Sobre la vida, el amor y la muerte de Sergio Maestri - Poesía y prosa" loading="lazy"></div>
+        <div class="body"><span class="tipo">Poesía y prosa</span><h3>Sobre la vida, el amor y la muerte</h3><div class="meta">1992 · Revisión 2023</div>
+        <p>Poemas líricos y reflexivos junto a prosa breve de estilo poético. Obra de madurez con un apéndice, «Paisajes», que retrata una tormenta, una partitura musical y el tránsito hacia la muerte.</p></div>
+      </article>
+
+      <article class="obra">
+        <div class="cover"><img src="img/covers/serrat.jpg" alt="Portada del libro Serrat, el hombre, el artista de Sergio Maestri - Biografía de Joan Manuel Serrat" loading="lazy"></div>
+        <div class="body"><span class="tipo">Biografía</span><h3>Serrat, el hombre, el artista</h3><div class="meta">1996 · Revisada 2021</div>
+        <p>Biografía del cantautor catalán Joan Manuel Serrat, con texto, fotografías, canciones y discografía. Un compendio ilustrado de su trayectoria, anécdotas, conciertos y exilios.</p></div>
+      </article>
+
+      <article class="obra">
+        <div class="cover"><img src="img/covers/cronicas-winter.jpg" alt="Portada del libro Crónicas del doctor Winter de Sergio Maestri - Novela" loading="lazy"></div>
+        <div class="body"><span class="tipo">Novela</span><h3>Crónicas del doctor Winter</h3><div class="meta">2017 · Ediciones LeE</div>
+        <p>Novela en 23 capítulos. La historia del doctor Sebastián Winter, médico rural que se enlista en Médicos Sin Fronteras y vive aventuras extraordinarias, en un relato intimista que ahonda en el alma humana.</p></div>
+      </article>
+
+      <article class="obra">
+        <div class="cover"><img src="img/covers/la-raza-de-bronce.jpg" alt="Portada del libro La raza de bronce de Sergio Maestri - Cuentos de ciencia ficción y terror" loading="lazy"></div>
+        <div class="body"><span class="tipo">Cuentos</span><h3>La raza de bronce</h3><div class="meta">2018 · Grupo de Escritores Argentinos</div>
+        <p>Trece cuentos de índole fantástica: ciencia ficción, policiales, románticos, suspenso y terror. Quizás el más logrado de sus libros de cuentos, entre la realidad y la ficción.</p></div>
+      </article>
+
+      <article class="obra">
+        <div class="cover"><img src="img/covers/luna-buenos-aires.jpg" alt="Tapa de Luna de Buenos Aires" loading="lazy"></div>
+        <div class="body"><span class="tipo">Poesía y relatos</span><h3>Luna de Buenos Aires</h3><div class="meta">2019 · Ediciones Prometeo</div>
+        <p>Poemas y relatos de Buenos Aires con ilustraciones. Paisajes porteños y personajes prototípicos, en una lengua que funde el castellano con el lunfardo, en un ambiente de nostalgia y emoción.</p></div>
+      </article>
+
+      <article class="obra">
+        <div class="cover"><img src="img/covers/cuentos-esotericos.jpg" alt="Tapa de Cuentos esotéricos" loading="lazy"></div>
+        <div class="body"><span class="tipo">Cuentos</span><h3>Cuentos esotéricos</h3><div class="meta">2021 · Editorial Prometeo</div>
+        <p>Quince cuentos de temática esotérica —policiales, psicológicos y fantásticos— con un leitmotiv de historias ocultas, místicas y sobrenaturales, y su profundo significado para el alma humana.</p></div>
+      </article>
+
+      <article class="obra">
+        <div class="cover"><img src="img/covers/relatos-trasnochados.jpg" alt="Tapa de Relatos trasnochados" loading="lazy"></div>
+        <div class="body"><span class="tipo">Cuentos</span><h3>Relatos trasnochados</h3><div class="meta">2023 · Editorial Prometeo</div>
+        <p>Recopilación de relatos de juventud, corregidos y recopilados, cuentos escritos durante su participación en el Mundial de Escritura 2020 y textos que han visto la luz en los últimos años, en los que conviven el misterio, el amor, el horror, la nostalgia y el humor.</p></div>
+      </article>
+
+      <article class="obra">
+        <div class="cover"><img src="img/covers/fabulas-selva.jpg" alt="Tapa de Fábulas de la selva misionera" loading="lazy"></div>
+        <div class="body"><span class="tipo">Infantil</span><h3>Fábulas de la selva misionera</h3><div class="meta">2024 · Ediciones Prometeo</div>
+        <p>Fábulas morales infantiles con moralejas aleccionadoras, ambientadas en el corazón de la selva misionera. Ilustrado por Lorena Westrepp.</p></div>
+      </article>
+
+      <article class="obra">
+        <div class="cover"><img src="img/covers/ultimos-dias.jpg" alt="Tapa de Los últimos días de mi padre" loading="lazy"></div>
+        <div class="body"><span class="tipo">Novela</span><h3>Los últimos días de mi padre</h3><div class="meta">2025 · Ediciones Prometeo</div>
+        <p>Esta novela narra la historia familiar del autor, contada por su padre, quien padece de una enfermedad terminal.</p>
+        <p>A lo largo de charlas entre el autor y su padre, van repasando una historia que se remonta a varias generaciones de la línea paterna, desde la Europa de fines del siglo XIX hasta nuestros días.</p></div>
+      </article>
+
+      <article class="obra">
+        <div class="cover"><img src="img/covers/el-despertar.jpg" alt="Tapa de El despertar" loading="lazy"></div>
+        <div class="body"><span class="tipo">Novela</span><h3>El despertar</h3><div class="meta">2026 · Ediciones Prometeo</div>
+        <p>Esta novela narra la historia de la transformación de un hombre quien, cansado de la rutina, de sus hábitos arraigados y sus creencias limitantes, decide emprender un camino de desarrollo personal, y de una profunda introspección, reencontrándose con las aspiraciones y anhelos del ayer.</p></div>
+      </article>
+
+    </div>
+
+    <div class="otras">
+      <h3>Otras publicaciones</h3>
+      <p class="sub">Revistas, antologías y periódicos en los que ha publicado</p>
+      <ul>
+        <li>Poemas en la revista <em>Perfiles</em> de Morón (marzo 1983 – agosto 1986).</li>
+        <li>Poemas y notas en la revista <em>Imaginarte</em> (julio 1987 – septiembre 1988).</li>
+        <li>Dos poemas en antología del 1.er Concurso de Poesía y Dibujo Inédito (1990).</li>
+        <li>Soneto «Creencias» en la revista <em>Almafuerte</em> (1994).</li>
+        <li>Cuatro poemas y dos cuentos de ficción en antología poética (1996).</li>
+        <li>Publicaciones en <em>Trama</em>, periódico de artes, letras y ciencias (1997/98).</li>
+        <li>Boletín de la Academia Virtual del Lunfardo y el Tango: «Fulera suerte» (sept. 2018, n.º 22), «Los fantasmas del café Tortoni» (feb. 2021, n.º 58), «Avenida Corrientes» (abr. 2022, n.º 73), «Barrio porteño» (feb. 2023, n.º 83) y el relato «La tumba de Carlos Garles» (nov. 2024, n.º 104).</li>
+      </ul>
+      <div class="mag-grid" id="gal-otras"></div>
+    </div>
+  </div>
+</section>
+
+<section id="prensa">
+  <div class="wrap">
+    <div class="section-title">
+      <small>En los medios</small>
+      <h2>Prensa y actividades</h2>
+      <div class="rule"></div>
+    </div>
+
+    <div class="prensa-block">
+      <h3>Presentaciones</h3>
+      <ul>
+        <li>Presentación de la novela <em>Crónicas del doctor Winter</em> en el salón Chemichaux (2018).</li>
+        <li>Book tráiler de <em>Crónicas del doctor Winter</em>: <a href="https://www.youtube.com/watch?v=CWY-VRG5Nyc" target="_blank" rel="noopener">ver en YouTube</a> · <a href="https://www.facebook.com/edicioneslee/videos/1949980505060333/" target="_blank" rel="noopener">ver en Facebook</a>.</li>
+        <li>Presentación de <em>La raza de bronce</em> — Feria del Libro de Buenos Aires 2019 (5 de mayo, stand de la Sociedad Argentina de Escritores).</li>
+        <li>Presentación de <em>La raza de bronce</em> en el salón «El Jardín del Ángel» (junio 2019).</li>
+        <li>Co-conductor del programa <em>La educación del futuro</em> por Radio Mantra FM 91.9.</li>
+      </ul>
+    </div>
+
+    <div class="prensa-block">
+      <h3>Encuentros y talleres</h3>
+      <ul>
+        <li>Dictado de talleres literarios, corrección de textos y organización de eventos culturales.</li>
+        <li>Círculo de Poetas de Morón — Revista <em>Perfiles</em>.</li>
+        <li>Taller literario de Valeria Zurano en la biblioteca de Morón.</li>
+        <li>Encuentro de Escritores en Merlo, San Luis (mayo 2019).</li>
+        <li>Encuentro de Escritores en Campana, Buenos Aires (septiembre 2019).</li>
+        <li>Encuentro Nuevos Autores Argentinos, CABA (noviembre 2019).</li>
+      </ul>
+    </div>
+
+    <div class="prensa-block">
+      <h3>Entrevistas radiales</h3>
+      <ul>
+        <li><em>Vamos por más</em> — Jorge Betatti, Radio María del Rosario de Avellaneda FM 90.7: <a href="https://www.youtube.com/watch?v=CKV2fKe3Mo4" target="_blank" rel="noopener">escuchar</a>.</li>
+        <li><em>Un estilo diferente</em> — Oscar Pedro Juliano, Radio Nueva Argentina FM 88.5: <a href="https://www.youtube.com/watch?v=o9IR-UE0sAQ" target="_blank" rel="noopener">escuchar</a>.</li>
+        <li><em>La educación del futuro</em> — Patricia Ferreyra Sosa, Radio Mantra FM 91.9: <a href="https://www.youtube.com/watch?v=bnn-5NgYCuk" target="_blank" rel="noopener">parte 1</a> · <a href="https://www.youtube.com/watch?v=B2Tar2RNaaU" target="_blank" rel="noopener">parte 2</a>.</li>
+        <li><em>El país y los escritores</em> — Edgardo Miller, Radio Cultura FM 97.9.</li>
+        <li><em>Jardín de gente</em> — Carlos Caporali, Radio Boedo 88.1.</li>
+      </ul>
+    </div>
+
+    <h3 class="subhead">Galería de fotos</h3>
+    <div class="gallery" id="gal-prensa"></div>
+    <p class="gallery-note">Presentaciones, encuentros y entrevistas. Hacé clic para ampliar y usá las flechas ◀ ▶ (o el teclado) para recorrerlas.</p>
+  </div>
+</section>
+
+<section class="alt" id="blog">
+  <div class="wrap">
+    <div class="section-title">
+      <small>Notas, poemas y relatos</small>
+      <h2>Blog</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="prensa-block">
+      <h3>Publicaciones y notas de opinión</h3>
+      <ul>
+        <li>Carta de lectores a <em>Clarín</em> (mayo 2018): <a href="https://clar.in/2KRU3RN" target="_blank" rel="noopener">leer</a>.</li>
+        <li>Carta de lectores a <em>Clarín</em> — «El amor en los tiempos del coronavirus» (junio 2020): <a href="https://www.clarin.com/cartas-al-pais/amor-tiempos-coronavirus_0_1Yb2OjKv9.html" target="_blank" rel="noopener">leer</a>.</li>
+        <li>Perfil y notas en Club de Escritura: <a href="https://clubdeescritura.com/perfil/95627/sergio-maestri-2/#folder-112069" target="_blank" rel="noopener">ver perfil</a>.</li>
+        <li>«Mitología tanguera I — Gardel» en Pampeando y Tangueando: <a href="https://pampeandoytangueando.com/tangueando/mitologia-tanguera-i-gardel/" target="_blank" rel="noopener">leer</a>.</li>
+      </ul>
+    </div>
+    <p style="text-align:center;font-style:italic;color:var(--tinta-suave);margin-top:1.5rem">Este espacio irá creciendo con nuevos artículos, poemas y fragmentos.</p>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="wrap contacto">
+    <div class="section-title">
+      <small>Escribime</small>
+      <h2>Contacto</h2>
+      <div class="rule"></div>
+    </div>
+    <p>Para consultas, presentaciones, talleres o adquirir sus obras:</p>
+    <p class="mail"><a href="mailto:sgmaestri@yahoo.com.ar">sgmaestri@yahoo.com.ar</a></p>
+    <div class="social">
+      <a href="https://www.facebook.com/sergiomaestri.10" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.instagram.com/sergiogmaestri/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="brand-f">Sergio Maestri</div>
+  <p style="margin:.6rem 0">Escritor · Poesía, novela y cuento · Buenos Aires, Argentina</p>
+  <p>© <span id="year"></span> Sergio Maestri. Todos los derechos reservados.</p>
+</footer>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="Visor de imágenes">
+  <span class="close" aria-label="Cerrar">&times;</span>
+  <button class="lb-nav lb-prev" aria-label="Imagen anterior">&#10094;</button>
+  <img id="lb-img" src="" alt="">
+  <button class="lb-nav lb-next" aria-label="Imagen siguiente">&#10095;</button>
+  <div class="lb-count" id="lb-count"></div>
+</div>
+
+<script>
+  function cerrar(){document.getElementById('menu').classList.remove('open');}
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // build galleries
+  function fill(id, dir, prefix, count, ext){
+    var g=document.getElementById(id);
+    if(!g) return;
+    for(var i=1;i<=count;i++){
+      var n=(i<10?'0':'')+i;
+      var im=document.createElement('img');
+      im.src=dir+'/'+prefix+n+'.'+ext;
+      im.loading='lazy'; im.alt='';
+      g.appendChild(im);
+    }
+  }
+  fill('gal-premios','img/premios','p',15,'jpg');
+  fill('gal-prensa','img/prensa','r',18,'jpg');
+  fill('gal-otras','img/otras','o',7,'jpg');
+
+  // navigable lightbox (visor con flechas / teclado / swipe)
+  var lb=document.getElementById('lb'),
+      lbImg=document.getElementById('lb-img'),
+      lbCount=document.getElementById('lb-count');
+  var group=[], idx=0;
+
+  function show(i){
+    if(!group.length) return;
+    idx=(i+group.length)%group.length;           // recorre en bucle
+    lbImg.src=group[idx];
+    lbCount.textContent=(idx+1)+' / '+group.length;
+  }
+  function openFrom(img){
+    var box=img.closest('.gallery, .mag-grid, .obras-grid');
+    var imgs=box?box.querySelectorAll('img'):[img];
+    group=Array.prototype.map.call(imgs,function(x){return x.currentSrc||x.src;});
+    var start=Array.prototype.indexOf.call(imgs,img);
+    lb.classList.add('open');
+    show(start<0?0:start);
+  }
+  function closeLb(){lb.classList.remove('open');}
+  function nav(d){show(idx+d);}
+
+  document.querySelectorAll('.gallery img, .mag-grid img, .obra .cover img').forEach(function(im){
+    im.addEventListener('click',function(){openFrom(this);});
+  });
+
+  lb.addEventListener('click',function(e){if(e.target===lb)closeLb();}); // cierra solo al tocar el fondo
+  document.querySelector('#lb .close').addEventListener('click',closeLb);
+  document.querySelector('#lb .lb-prev').addEventListener('click',function(e){e.stopPropagation();nav(-1);});
+  document.querySelector('#lb .lb-next').addEventListener('click',function(e){e.stopPropagation();nav(1);});
+  document.addEventListener('keydown',function(e){
+    if(!lb.classList.contains('open')) return;
+    if(e.key==='Escape') closeLb();
+    else if(e.key==='ArrowLeft') nav(-1);
+    else if(e.key==='ArrowRight') nav(1);
+  });
+
+  // swipe en celular
+  var tx=0;
+  lb.addEventListener('touchstart',function(e){tx=e.changedTouches[0].clientX;},{passive:true});
+  lb.addEventListener('touchend',function(e){
+    var dx=e.changedTouches[0].clientX-tx;
+    if(Math.abs(dx)>40) nav(dx<0?1:-1);
+  },{passive:true});
+</script>
+</body>
+</html>
