@@ -1,0 +1,153 @@
+---
+/**
+ * Navegación principal — header sticky con menú hamburguesa.
+ * Las anclas apuntan a las secciones del one-page (Opción A):
+ * el clic hace scroll suave, no navega a otra URL.
+ */
+const enlaces = [
+  { href: '#inicio',    texto: 'Inicio'    },
+  { href: '#biografia', texto: 'Biografía' },
+  { href: '#premios',   texto: 'Premios'   },
+  { href: '#obras',     texto: 'Obras'     },
+  { href: '#prensa',    texto: 'Prensa'    },
+  { href: '#blog',      texto: 'Blog'      },
+  { href: '#contacto',  texto: 'Contacto'  },
+];
+---
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand">Sergio Maestri<small>Escritor</small></div>
+
+    <button
+      class="menu-btn"
+      id="menu-btn"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      aria-controls="menu"
+    >☰</button>
+
+    <nav aria-label="Navegación principal">
+      <ul id="menu">
+        {enlaces.map(({ href, texto }) => (
+          <li><a href={href}>{texto}</a></li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  /* Valores extraídos textualmente del CSS original (index.html:44-51) */
+  header.nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(246, 241, 231, .94);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--linea);
+  }
+
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: .7rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: .04em;
+    color: var(--tinta);
+  }
+
+  .brand small {
+    display: block;
+    font-size: .62rem;
+    letter-spacing: .32em;
+    text-transform: uppercase;
+    color: var(--dorado);
+    font-family: 'EB Garamond', serif;
+    margin-top: -2px;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.4rem;
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    font-size: .82rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--tinta-suave);
+  }
+
+  nav a:hover { color: var(--marron); }
+
+  .menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    color: var(--tinta);
+    cursor: pointer;
+  }
+
+  @media (max-width: 760px) {
+    nav ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      gap: 0;
+      background: var(--crema);
+      border-bottom: 1px solid var(--linea);
+      padding: .5rem 1.5rem 1rem;
+    }
+    nav ul.open { display: flex; }
+    nav li      { padding: .5rem 0; border-bottom: 1px solid var(--linea); }
+    .menu-btn   { display: block; }
+  }
+</style>
+
+<script>
+  const btn  = document.getElementById('menu-btn');
+  const menu = document.getElementById('menu');
+
+  if (btn && menu) {
+    const cerrar = () => {
+      menu.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-label', 'Abrir menú');
+    };
+
+    const alternar = () => {
+      const abierto = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(abierto));
+      btn.setAttribute('aria-label', abierto ? 'Cerrar menú' : 'Abrir menú');
+    };
+
+    btn.addEventListener('click', (e) => { e.stopPropagation(); alternar(); });
+
+    // Cierra al elegir una sección
+    menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', cerrar));
+
+    // ✔ NUEVO: cierra con Escape y al tocar fuera del menú
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menu.classList.contains('open')) { cerrar(); btn.focus(); }
+    });
+    document.addEventListener('click', (e) => {
+      if (menu.classList.contains('open') && !menu.contains(e.target as Node)) cerrar();
+    });
+  }
+</script>

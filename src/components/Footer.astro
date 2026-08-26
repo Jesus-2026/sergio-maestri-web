@@ -1,0 +1,33 @@
+---
+// El año se calcula en el BUILD, no en el navegador.
+// Antes era JavaScript en cliente (index.html:516).
+const anio = new Date().getFullYear();
+---
+
+<footer>
+  <div class="brand-f">Sergio Maestri</div>
+  <p class="linea">Escritor · Poesía, novela y cuento · Buenos Aires, Argentina</p>
+  <p>© {anio} Sergio Maestri. Todos los derechos reservados.</p>
+</footer>
+
+<style>
+  /* Valores extraídos textualmente del CSS original */
+  footer {
+    background: var(--tinta);
+    color: #cabfa9;
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    font-size: .85rem;
+  }
+
+  .brand-f {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    color: #f6f1e7;
+    letter-spacing: .06em;
+  }
+
+  .linea { margin: .6rem 0; }
+
+  footer :global(a) { color: var(--dorado-claro); }
+</style>

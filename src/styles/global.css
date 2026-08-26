@@ -1,0 +1,120 @@
+/* ═══════════════════════════════════════════════════════════
+   ESTILOS GLOBALES — Sergio Maestri
+   Reset, tipografía base y primitivas de layout compartidas.
+   Valores extraídos textualmente del CSS original.
+   Los estilos de cada componente viven en su propio .astro
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Reset ────────────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ✔ CORRECCIÓN: el header sticky (~60px) tapaba el título de la
+   sección al navegar por anclas. Sin esto, hacer clic en "Premios"
+   dejaba el encabezado escondido debajo de la barra.
+   No altera el diseño: solo corrige dónde se detiene el scroll. */
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+body {
+  font-family: 'EB Garamond', Georgia, serif;
+  color: var(--tinta);
+  background: var(--crema);
+  line-height: 1.75;
+  font-size: 19px;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--tinta);
+}
+
+a {
+  color: var(--marron);
+  text-decoration: none;
+  transition: color .2s;
+}
+
+a:hover { color: var(--dorado); }
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ── Primitivas de layout ─────────────────────────────────── */
+section     { padding: 5rem 1.5rem; }
+.wrap       { max-width: 900px;  margin: 0 auto; }
+.wrap-wide  { max-width: 1100px; margin: 0 auto; }
+.alt        { background: var(--crema-2); }
+
+.section-title            { text-align: center; margin-bottom: 3rem; }
+.section-title small      { display: block; letter-spacing: .32em; text-transform: uppercase;
+                            font-size: .72rem; color: var(--dorado); margin-bottom: .5rem; }
+.section-title h2         { font-size: clamp(2rem, 4.5vw, 2.8rem); }
+.section-title .rule      { width: 60px; height: 2px; background: var(--dorado); margin: 1rem auto 0; }
+
+.subhead {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.7rem;
+  text-align: center;
+  color: var(--marron);
+  margin: 3rem 0 .3rem;
+}
+
+blockquote {
+  border-left: 3px solid var(--dorado);
+  padding: .3rem 0 .3rem 1.4rem;
+  margin: 1.8rem 0;
+  font-style: italic;
+  color: var(--tinta-suave);
+  font-size: 1.18rem;
+}
+
+/* ── Accesibilidad ────────────────────────────────────────── */
+
+/* ✔ NUEVO: enlace para saltar la navegación.
+   Invisible hasta que se lo enfoca con el teclado (Tab). */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  padding: .8rem 1.4rem;
+  background: var(--tinta);
+  color: var(--crema);
+  border-radius: 0 0 4px 0;
+}
+.skip-link:focus {
+  left: 0;
+  top: 0;
+  color: var(--crema);
+}
+
+/* ✔ NUEVO: respeta la preferencia del sistema de reducir movimiento. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 760px) {
+  body    { font-size: 18px; }
+  section { padding: 3.5rem 1.2rem; }
+}

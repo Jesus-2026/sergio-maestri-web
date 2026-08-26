@@ -1,0 +1,41 @@
+/* ═══════════════════════════════════════════════════════════
+   TOKENS DE DISEÑO — Sergio Maestri
+   Extraídos textualmente del :root original (index.html:31-35).
+   Ningún valor fue modificado.
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  /* Fondos */
+  --crema:        #f6f1e7;   /* fondo principal            */
+  --crema-2:      #efe7d6;   /* fondo de secciones .alt    */
+
+  /* Texto */
+  --tinta:        #2b2620;   /* texto principal   13.32:1  */
+  --tinta-suave:  #534b40;   /* texto secundario   7.62:1  */
+
+  /* Acentos */
+  --marron:       #6b4f2e;   /* enlaces            6.70:1  */
+  --dorado:       #a9863f;   /* acentos            3.02:1  ⚠️ */
+  --dorado-claro: #c9a86a;   /* acentos suaves             */
+
+  /* Estructura */
+  --linea:        #d8cab0;   /* bordes y separadores       */
+  --sombra:       rgba(43, 38, 32, .12);
+}
+
+/* ───────────────────────────────────────────────────────────
+   ⚠️ DEUDA DE ACCESIBILIDAD CONOCIDA — pendiente de decisión
+   ───────────────────────────────────────────────────────────
+   --dorado (#a9863f) sobre --crema (#f6f1e7) da 3.02:1.
+   WCAG 2.1 AA exige 4.5:1 para texto menor a 18.66px.
+
+   Afecta a:
+     · .section-title small  (.72rem) — los 7 antetítulos
+     · .obra .meta           (.85rem) — año y editorial de 12 obras
+
+   Nota: .premio .year (24px, peso 600) califica como texto
+   grande y cumple con el umbral de 3:1.
+
+   Corrección disponible: #8a6a2a → 4.54:1 (cumple AA).
+   Estado: NO aplicada por decisión del cliente (25/08/2026).
+   ─────────────────────────────────────────────────────────── */

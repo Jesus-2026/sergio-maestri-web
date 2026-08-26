@@ -1,0 +1,57 @@
+---
+import Base from '../layouts/Base.astro';
+
+const titulo      = 'Sergio Maestri — Escritor Argentino | Poesía, Novela y Cuento';
+const descripcion = 'Sitio oficial de Sergio Maestri, escritor argentino. Poesía, novela y cuento. Biografía, obras, premios y prensa.';
+---
+
+<Base titulo={titulo} descripcion={descripcion}>
+
+  {/* ─────────────────────────────────────────────────────────
+      FASE 1 — Andamiaje.
+      Las 8 secciones (Hero, Presentación, Biografía, Premios,
+      Obras, Prensa, Blog, Contacto) se migran en la Fase 3
+      y se insertan acá como componentes, conservando las
+      mismas anclas y el mismo scroll.
+      ───────────────────────────────────────────────────────── */}
+
+  <section id="inicio">
+    <div class="wrap">
+      <div class="section-title">
+        <small>Fase 1 · Andamiaje</small>
+        <h2>Estructura base operativa</h2>
+        <div class="rule"></div>
+      </div>
+
+      <p>Layout, navegación, pie y tokens de diseño migrados a Astro.</p>
+
+      <blockquote>Las secciones de contenido se incorporan en la Fase 3.</blockquote>
+
+      <ul class="chequeo">
+        <li>✔ Tokens de diseño — 9 variables, valores originales</li>
+        <li>✔ Header sticky y menú hamburguesa</li>
+        <li>✔ Pie de página con año calculado en el build</li>
+        <li>✔ Landmark <code>&lt;main&gt;</code> y salto de navegación</li>
+        <li>✔ Dominio centralizado en un solo archivo</li>
+        <li>✔ <code>scroll-margin-top</code> — el header ya no tapa los títulos</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="biografia" class="alt"><div class="wrap"><h2>Biografía</h2><p>Fase 3</p></div></section>
+  <section id="premios"><div class="wrap"><h2>Premios</h2><p>Fase 3</p></div></section>
+  <section id="obras" class="alt"><div class="wrap"><h2>Obras</h2><p>Fase 3</p></div></section>
+  <section id="prensa"><div class="wrap"><h2>Prensa</h2><p>Fase 3</p></div></section>
+  <section id="blog" class="alt"><div class="wrap"><h2>Blog</h2><p>Fase 3</p></div></section>
+  <section id="contacto"><div class="wrap"><h2>Contacto</h2><p>Fase 3</p></div></section>
+
+</Base>
+
+<style>
+  .chequeo { list-style: none; margin-top: 1.5rem; }
+  .chequeo li {
+    padding: .5rem 0;
+    border-bottom: 1px solid var(--linea);
+    color: var(--tinta-suave);
+  }
+</style>

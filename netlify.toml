@@ -1,44 +1,42 @@
-# Configuración de Netlify para sergio-maestri-escritor.netlify.app
+# Configuración de Netlify — Sergio Maestri
+# Sitio estático generado con Astro 7
 
 [build]
-  # Directorio de publicación (raíz del proyecto)
-  publish = "."
+  publish = "dist"
+  command = "npm run build"
 
-  # No hay comando de build porque es un sitio estático simple
-  command = ""
+[build.environment]
+  NODE_VERSION = "24"
 
-# Configuración de headers HTTP
+# ── Seguridad ────────────────────────────────────────────────
 [[headers]]
-  # Aplicar a todos los archivos
   for = "/*"
   [headers.values]
-    # Seguridad básica
-    X-Frame-Options = "SAMEORIGIN"
+    X-Frame-Options        = "SAMEORIGIN"
     X-Content-Type-Options = "nosniff"
-    X-XSS-Protection = "1; mode=block"
-    Referrer-Policy = "strict-origin-when-cross-origin"
+    Referrer-Policy        = "strict-origin-when-cross-origin"
+    Permissions-Policy     = "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+    # NOTA: se eliminó X-XSS-Protection. Está obsoleto en todos los
+    # navegadores modernos y en su momento introdujo vulnerabilidades
+    # propias (XS-Leaks). Se reemplaza por CSP en la Fase 7.
 
-# Headers específicos para robots.txt
-[[headers]]
-  for = "/robots.txt"
-  [headers.values]
-    Content-Type = "text/plain; charset=utf-8"
-    Cache-Control = "public, max-age=3600"
+# ── Caché ────────────────────────────────────────────────────
 
-# Headers para sitemap.xml
+# Assets generados por Astro: llevan hash en el nombre, así que
+# son seguros de cachear para siempre.
 [[headers]]
-  for = "/sitemap.xml"
-  [headers.values]
-    Content-Type = "application/xml; charset=utf-8"
-    Cache-Control = "public, max-age=3600"
-
-# Headers para imágenes (optimización de caché)
-[[headers]]
-  for = "/img/*"
+  for = "/_astro/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-# Headers para HTML (no cachear para ver cambios rápidamente)
+# Imágenes de contenido: los nombres NO cambian al reemplazarlas.
+# Antes estaban con `immutable` a 1 año, lo que impedía que una foto
+# actualizada llegara a quien ya había visitado el sitio.
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
 [[headers]]
   for = "/*.html"
   [headers.values]
