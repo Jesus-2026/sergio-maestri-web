@@ -1,40 +1,53 @@
 ---
+import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 
 const titulo      = 'Sergio Maestri — Escritor Argentino | Poesía, Novela y Cuento';
 const descripcion = 'Sitio oficial de Sergio Maestri, escritor argentino. Poesía, novela y cuento. Biografía, obras, premios y prensa.';
+
+/* FASE 2 — verificación de que las colecciones son consultables.
+   En la Fase 3 estos datos alimentan los componentes reales. */
+const libros   = (await getCollection('libros')).sort((a, b) => a.data.orden - b.data.orden);
+const premios  = (await getCollection('premios')).sort((a, b) => a.data.orden - b.data.orden);
+const prensa   = (await getCollection('prensa')).sort((a, b) => a.data.orden - b.data.orden);
+const blog     = await getCollection('blog');
+const otras    = await getCollection('otras');
+const galerias = await getCollection('galerias');
+
+const totalGaleria = galerias.reduce((n, g) => n + g.data.imagenes.length, 0);
+const itemsPrensa  = prensa.reduce((n, p) => n + p.data.items.length, 0);
 ---
 
 <Base titulo={titulo} descripcion={descripcion}>
 
-  {/* ─────────────────────────────────────────────────────────
-      FASE 1 — Andamiaje.
-      Las 8 secciones (Hero, Presentación, Biografía, Premios,
-      Obras, Prensa, Blog, Contacto) se migran en la Fase 3
-      y se insertan acá como componentes, conservando las
-      mismas anclas y el mismo scroll.
-      ───────────────────────────────────────────────────────── */}
-
   <section id="inicio">
     <div class="wrap">
       <div class="section-title">
-        <small>Fase 1 · Andamiaje</small>
-        <h2>Estructura base operativa</h2>
+        <small>Fase 2 · Arquitectura de contenido</small>
+        <h2>Colecciones operativas</h2>
         <div class="rule"></div>
       </div>
 
-      <p>Layout, navegación, pie y tokens de diseño migrados a Astro.</p>
-
-      <blockquote>Las secciones de contenido se incorporan en la Fase 3.</blockquote>
+      <p>El contenido dejó de ser HTML escrito a mano y pasó a ser datos validados.
+         Esto es lo que va a administrar el cliente desde el panel.</p>
 
       <ul class="chequeo">
-        <li>✔ Tokens de diseño — 9 variables, valores originales</li>
-        <li>✔ Header sticky y menú hamburguesa</li>
-        <li>✔ Pie de página con año calculado en el build</li>
-        <li>✔ Landmark <code>&lt;main&gt;</code> y salto de navegación</li>
-        <li>✔ Dominio centralizado en un solo archivo</li>
-        <li>✔ <code>scroll-margin-top</code> — el header ya no tapa los títulos</li>
+        <li><strong>{libros.length}</strong> libros — con portada validada y optimizable</li>
+        <li><strong>{premios.length}</strong> premios</li>
+        <li><strong>{prensa.length}</strong> bloques de prensa ({itemsPrensa} ítems)</li>
+        <li><strong>{blog.length}</strong> bloque de blog ({blog[0]?.data.items.length ?? 0} ítems)</li>
+        <li><strong>{otras[0]?.data.items.length ?? 0}</strong> otras publicaciones</li>
+        <li><strong>{totalGaleria}</strong> imágenes de galería — leídas de la lista, sin contadores fijos</li>
       </ul>
+
+      <blockquote>Los componentes visuales que consumen estos datos llegan en la Fase 3.</blockquote>
+
+      <h3 class="subhead">Muestra: obras cargadas</h3>
+      <ol class="muestra">
+        {libros.map((l) => (
+          <li><strong>{l.data.titulo}</strong> — {l.data.meta} <em>({l.data.tipo})</em></li>
+        ))}
+      </ol>
     </div>
   </section>
 
@@ -48,10 +61,12 @@ const descripcion = 'Sitio oficial de Sergio Maestri, escritor argentino. Poesí
 </Base>
 
 <style>
-  .chequeo { list-style: none; margin-top: 1.5rem; }
-  .chequeo li {
+  .chequeo, .muestra { margin-top: 1.5rem; }
+  .chequeo { list-style: none; }
+  .chequeo li, .muestra li {
     padding: .5rem 0;
     border-bottom: 1px solid var(--linea);
     color: var(--tinta-suave);
   }
+  .muestra { padding-left: 1.4rem; }
 </style>
