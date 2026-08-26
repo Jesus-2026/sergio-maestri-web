@@ -1,0 +1,16 @@
+# Finales de línea: LF en el repositorio, sin importar el sistema.
+# Evita diffs fantasma entre el desarrollo en Windows y el build de
+# Netlify, que corre en Linux.
+* text=auto eol=lf
+
+# Binarios: git no debe tocarlos nunca
+*.jpg   binary
+*.jpeg  binary
+*.png   binary
+*.gif   binary
+*.webp  binary
+*.avif  binary
+*.ico   binary
+*.woff  binary
+*.woff2 binary
+*.pdf   binary
