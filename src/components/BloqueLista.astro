@@ -1,0 +1,25 @@
+---
+import { inline } from '../lib/markdown';
+interface Props { titulo: string; items: string[]; }
+const { titulo, items } = Astro.props;
+---
+<div class="prensa-block">
+  <h3>{titulo}</h3>
+  <ul>
+    {items.map((t) => <li set:html={inline(t)} />)}
+  </ul>
+</div>
+
+<style>
+  .prensa-block { margin-bottom: 2.6rem; }
+  .prensa-block h3 {
+    font-size: 1.6rem;
+    color: var(--marron);
+    margin-bottom: 1rem;
+    padding-bottom: .4rem;
+    border-bottom: 2px solid var(--linea);
+  }
+  .prensa-block ul { list-style: none; }
+  .prensa-block li { padding: .5rem 0; padding-left: 1.4rem; position: relative; }
+  .prensa-block li::before { content: "\276E"; position: absolute; left: 0; color: var(--dorado); }
+</style>

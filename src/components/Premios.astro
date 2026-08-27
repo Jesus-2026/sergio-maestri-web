@@ -1,0 +1,49 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import TituloSeccion from './TituloSeccion.astro';
+import Galeria from './Galeria.astro';
+
+const a = (await getEntry('ajustes', 'sitio'))!.data;
+const premios = (await getCollection('premios')).sort((x, y) => x.data.orden - y.data.orden);
+const galeria = (await getEntry('galerias', 'premios'))!.data;
+---
+<section id="premios">
+  <div class="wrap">
+    <TituloSeccion antetitulo={a.premiosAntetitulo} titulo={a.premiosTitulo} />
+
+    <ul class="premios-list">
+      {premios.map((p) => (
+        <li class="premio">
+          <div class="year">{p.data.anio}</div>
+          <div class="det">
+            <strong>{p.data.titulo}</strong>
+            {p.data.detalle && <span>{p.data.detalle}</span>}
+          </div>
+        </li>
+      ))}
+    </ul>
+
+    <h3 class="subhead">{galeria.titulo}</h3>
+    <Galeria imagenes={galeria.imagenes} nota={galeria.nota} />
+  </div>
+</section>
+
+<style>
+  .premios-list { list-style: none; }
+  .premio { display: flex; gap: 1.4rem; padding: 1.1rem 0; border-bottom: 1px solid var(--linea); }
+  .premio .year {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    color: var(--dorado);
+    min-width: 70px;
+    font-weight: 600;
+  }
+  .premio .det strong { color: var(--tinta); }
+  .premio .det span {
+    display: block;
+    color: var(--tinta-suave);
+    font-size: .95rem;
+    font-style: italic;
+    margin-top: .2rem;
+  }
+</style>

@@ -1,0 +1,87 @@
+---
+import heroImg from '../assets/img/hero2.png';
+
+interface Props {
+  tagline: string; titulo: string; frase: string;
+  cta: string; ctaDestino: string;
+}
+const { tagline, titulo, frase, cta, ctaDestino } = Astro.props;
+
+/* FASE 4 — pasar de background-image a <img> con srcset y AVIF/WebP.
+   Hoy se mantiene como fondo para que la comparación visual de la
+   Fase 3 sea exacta contra producción. */
+---
+<section class="hero" id="inicio" style={`--hero: url(${heroImg.src})`}>
+  <div class="hero-inner">
+    <small>{tagline}</small>
+    <h1>{titulo}</h1>
+    <p>{frase}</p>
+    <a class="cta" href={ctaDestino}>{cta}</a>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: left;
+    padding: 5rem clamp(1.5rem, 6vw, 5rem);
+    background-image:
+      linear-gradient(to right, rgba(31,27,22,.18), rgba(31,27,22,.30) 45%, rgba(31,27,22,.78) 100%),
+      var(--hero);
+    background-size: cover;
+    background-position: center 30%;
+    background-repeat: no-repeat;
+    color: #f6f1e7;
+  }
+
+  .hero-inner { max-width: 600px; }
+
+  .hero small {
+    display: block;
+    letter-spacing: .4em;
+    text-transform: uppercase;
+    font-size: .8rem;
+    color: var(--dorado-claro);
+    margin-bottom: 1.2rem;
+  }
+
+  .hero h1 { font-size: clamp(2.8rem, 7vw, 5rem); color: #fff; font-weight: 600; }
+
+  .hero p {
+    font-size: 1.25rem;
+    font-style: italic;
+    margin-top: 1.2rem;
+    color: #f0e9da;
+  }
+
+  .hero .cta {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: .7rem 1.8rem;
+    border: 1px solid var(--dorado-claro);
+    color: #f6f1e7;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    font-size: .8rem;
+    border-radius: 2px;
+  }
+
+  .hero .cta:hover { background: var(--dorado-claro); color: var(--tinta); }
+
+  @media (max-width: 760px) {
+    .hero {
+      justify-content: center;
+      text-align: center;
+      padding: 5rem 1.5rem;
+      background-image:
+        linear-gradient(rgba(31,27,22,.5), rgba(31,27,22,.62)),
+        var(--hero);
+      background-size: cover;
+      background-position: 32% 30%;
+    }
+  }
+</style>

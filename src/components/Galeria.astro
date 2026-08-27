@@ -1,0 +1,64 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  imagenes: { imagen: ImageMetadata; alt: string }[];
+  nota?: string;
+  clase?: 'gallery' | 'mag-grid';
+}
+const { imagenes, nota = '', clase = 'gallery' } = Astro.props;
+---
+{/* Reemplaza fill(id, dir, prefijo, N, ext) del sitio anterior.
+    La cantidad sale de la lista: ya no hay contadores fijos que
+    queden desactualizados al subir una imagen desde el panel. */}
+<div class={clase} data-galeria>
+  {imagenes.map(({ imagen, alt }) => (
+    <Image src={imagen} alt={alt} data-full={imagen.src} widths={[300, 600]} sizes="(max-width:760px) 45vw, 200px" loading="lazy" />
+  ))}
+</div>
+{nota && <p class="gallery-note">{nota}</p>}
+
+<style>
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: .9rem;
+    margin-top: 1.5rem;
+  }
+  .gallery :global(img) {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 3px;
+    box-shadow: 0 2px 8px var(--sombra);
+    cursor: pointer;
+    transition: transform .2s;
+  }
+  .gallery :global(img:hover) { transform: scale(1.03); }
+
+  .mag-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 1rem;
+    max-width: 820px;
+    margin: 0 auto;
+  }
+  .mag-grid :global(img) {
+    border-radius: 3px;
+    box-shadow: 0 2px 8px var(--sombra);
+    cursor: pointer;
+    transition: transform .2s;
+    width: 100%;
+    height: auto;
+  }
+  .mag-grid :global(img:hover) { transform: translateY(-3px); }
+
+  .gallery-note {
+    text-align: center;
+    font-style: italic;
+    color: var(--tinta-suave);
+    font-size: .92rem;
+    margin-top: .8rem;
+  }
+</style>

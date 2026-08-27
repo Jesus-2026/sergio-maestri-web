@@ -1,0 +1,9 @@
+---
+interface Props { antetitulo: string; titulo: string; }
+const { antetitulo, titulo } = Astro.props;
+---
+<div class="section-title">
+  <small>{antetitulo}</small>
+  <h2>{titulo}</h2>
+  <div class="rule"></div>
+</div>

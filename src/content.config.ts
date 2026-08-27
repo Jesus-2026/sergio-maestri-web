@@ -99,4 +99,49 @@ const galerias = defineCollection({
     }),
 });
 
-export const collections = { libros, premios, prensa, blog, otras, galerias };
+/* ── SECCIONES DE PROSA ─────────────────────────────────────────────
+   presentacion.md y biografia.md. El cuerpo markdown es el texto
+   corrido; el panel le muestra a Sergio un editor enriquecido.       */
+const secciones = defineCollection({
+  loader: md('secciones'),
+  schema: ({ image }) =>
+    z.object({
+      antetitulo: z.string().min(1),
+      titulo: z.string().min(1),
+      orden: z.number().int().positive(),
+      // solo presentación
+      retrato: image().optional(),
+      retratoAlt: z.string().optional(),
+      epigrafe: z.string().optional(),
+      parrafosLead: z.array(z.string()).optional(),
+      cita: z.string().optional(),
+      firma: z.string().optional(),
+    }),
+});
+
+/* ── AJUSTES DEL SITIO ──────────────────────────────────────────────
+   Textos cortos: hero, rótulos de sección, contacto y redes.         */
+const ajustes = defineCollection({
+  loader: md('ajustes'),
+  schema: z.object({
+    heroTagline: z.string().min(1),
+    heroTitulo: z.string().min(1),
+    heroFrase: z.string().min(1),
+    heroCta: z.string().min(1),
+    heroCtaDestino: z.string().min(1),
+
+    premiosAntetitulo: z.string(), premiosTitulo: z.string(),
+    obrasAntetitulo: z.string(),   obrasTitulo: z.string(),
+    prensaAntetitulo: z.string(),  prensaTitulo: z.string(),
+    blogAntetitulo: z.string(),    blogTitulo: z.string(),
+    blogPie: z.string().default(''),
+
+    contactoAntetitulo: z.string(),
+    contactoTitulo: z.string(),
+    contactoIntro: z.string(),
+    email: z.string().email(),
+    redes: z.array(z.object({ nombre: z.string().min(1), url: z.string().url() })),
+  }),
+});
+
+export const collections = { libros, premios, prensa, blog, otras, galerias, secciones, ajustes };

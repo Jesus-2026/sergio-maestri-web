@@ -1,0 +1,42 @@
+---
+import { getEntry } from 'astro:content';
+import TituloSeccion from './TituloSeccion.astro';
+
+const a = (await getEntry('ajustes', 'sitio'))!.data;
+---
+<section id="contacto">
+  <div class="wrap contacto">
+    <TituloSeccion antetitulo={a.contactoAntetitulo} titulo={a.contactoTitulo} />
+
+    <p>{a.contactoIntro}</p>
+    <p class="mail"><a href={`mailto:${a.email}`}>{a.email}</a></p>
+
+    <div class="social">
+      {a.redes.map((r) => (
+        <a href={r.url} target="_blank" rel="noopener me">{r.nombre}</a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .contacto { text-align: center; }
+  .mail {
+    font-size: 1.6rem;
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--marron);
+    margin: 1rem 0 2rem;
+  }
+  .social { display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; }
+  .social a {
+    display: inline-block;
+    padding: .6rem 1.4rem;
+    border: 1px solid var(--marron);
+    border-radius: 2px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    font-size: .78rem;
+    color: var(--marron);
+  }
+  .social a:hover { background: var(--marron); color: var(--crema); }
+</style>

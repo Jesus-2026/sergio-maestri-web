@@ -1,72 +1,43 @@
 ---
-import { getCollection } from 'astro:content';
+import { getEntry } from 'astro:content';
 import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Presentacion from '../components/Presentacion.astro';
+import Biografia from '../components/Biografia.astro';
+import Premios from '../components/Premios.astro';
+import Obras from '../components/Obras.astro';
+import Prensa from '../components/Prensa.astro';
+import Blog from '../components/Blog.astro';
+import Contacto from '../components/Contacto.astro';
+import Lightbox from '../components/Lightbox.astro';
+
+const a = (await getEntry('ajustes', 'sitio'))!.data;
 
 const titulo      = 'Sergio Maestri — Escritor Argentino | Poesía, Novela y Cuento';
 const descripcion = 'Sitio oficial de Sergio Maestri, escritor argentino. Poesía, novela y cuento. Biografía, obras, premios y prensa.';
-
-/* FASE 2 — verificación de que las colecciones son consultables.
-   En la Fase 3 estos datos alimentan los componentes reales. */
-const libros   = (await getCollection('libros')).sort((a, b) => a.data.orden - b.data.orden);
-const premios  = (await getCollection('premios')).sort((a, b) => a.data.orden - b.data.orden);
-const prensa   = (await getCollection('prensa')).sort((a, b) => a.data.orden - b.data.orden);
-const blog     = await getCollection('blog');
-const otras    = await getCollection('otras');
-const galerias = await getCollection('galerias');
-
-const totalGaleria = galerias.reduce((n, g) => n + g.data.imagenes.length, 0);
-const itemsPrensa  = prensa.reduce((n, p) => n + p.data.items.length, 0);
 ---
 
 <Base titulo={titulo} descripcion={descripcion}>
 
-  <section id="inicio">
-    <div class="wrap">
-      <div class="section-title">
-        <small>Fase 2 · Arquitectura de contenido</small>
-        <h2>Colecciones operativas</h2>
-        <div class="rule"></div>
-      </div>
+  {/* One-page (Opción A): las 7 anclas del menú apuntan a estas
+      secciones. El clic hace scroll suave, no navega a otra URL. */}
 
-      <p>El contenido dejó de ser HTML escrito a mano y pasó a ser datos validados.
-         Esto es lo que va a administrar el cliente desde el panel.</p>
+  <Hero
+    tagline={a.heroTagline}
+    titulo={a.heroTitulo}
+    frase={a.heroFrase}
+    cta={a.heroCta}
+    ctaDestino={a.heroCtaDestino}
+  />
 
-      <ul class="chequeo">
-        <li><strong>{libros.length}</strong> libros — con portada validada y optimizable</li>
-        <li><strong>{premios.length}</strong> premios</li>
-        <li><strong>{prensa.length}</strong> bloques de prensa ({itemsPrensa} ítems)</li>
-        <li><strong>{blog.length}</strong> bloque de blog ({blog[0]?.data.items.length ?? 0} ítems)</li>
-        <li><strong>{otras[0]?.data.items.length ?? 0}</strong> otras publicaciones</li>
-        <li><strong>{totalGaleria}</strong> imágenes de galería — leídas de la lista, sin contadores fijos</li>
-      </ul>
+  <Presentacion />
+  <Biografia />
+  <Premios />
+  <Obras />
+  <Prensa />
+  <Blog />
+  <Contacto />
 
-      <blockquote>Los componentes visuales que consumen estos datos llegan en la Fase 3.</blockquote>
-
-      <h3 class="subhead">Muestra: obras cargadas</h3>
-      <ol class="muestra">
-        {libros.map((l) => (
-          <li><strong>{l.data.titulo}</strong> — {l.data.meta} <em>({l.data.tipo})</em></li>
-        ))}
-      </ol>
-    </div>
-  </section>
-
-  <section id="biografia" class="alt"><div class="wrap"><h2>Biografía</h2><p>Fase 3</p></div></section>
-  <section id="premios"><div class="wrap"><h2>Premios</h2><p>Fase 3</p></div></section>
-  <section id="obras" class="alt"><div class="wrap"><h2>Obras</h2><p>Fase 3</p></div></section>
-  <section id="prensa"><div class="wrap"><h2>Prensa</h2><p>Fase 3</p></div></section>
-  <section id="blog" class="alt"><div class="wrap"><h2>Blog</h2><p>Fase 3</p></div></section>
-  <section id="contacto"><div class="wrap"><h2>Contacto</h2><p>Fase 3</p></div></section>
+  <Lightbox slot="after" />
 
 </Base>
-
-<style>
-  .chequeo, .muestra { margin-top: 1.5rem; }
-  .chequeo { list-style: none; }
-  .chequeo li, .muestra li {
-    padding: .5rem 0;
-    border-bottom: 1px solid var(--linea);
-    color: var(--tinta-suave);
-  }
-  .muestra { padding-left: 1.4rem; }
-</style>

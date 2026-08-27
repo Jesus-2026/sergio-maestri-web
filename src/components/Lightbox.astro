@@ -1,0 +1,188 @@
+---
+/**
+ * Visor de imágenes. Se activa sobre cualquier contenedor [data-galeria].
+ *
+ * Correcciones sobre el original:
+ *  · El botón de cerrar era un <span>: no era enfocable ni activable
+ *    con Enter/Espacio. Ahora es <button>.
+ *  · No había gestión de foco: se entraba al diálogo pero el foco
+ *    seguía detrás. Ahora entra, queda atrapado y vuelve al origen.
+ *  · El fondo seguía desplazándose con la rueda. Ahora se bloquea.
+ *  · El <img> tenía src="" (atributo inválido) y alt="" fijo.
+ *    Ahora el alt acompaña a cada imagen.
+ */
+---
+<div id="lb" role="dialog" aria-modal="true" aria-label="Visor de imágenes" hidden>
+  <button class="close" type="button" aria-label="Cerrar visor">&times;</button>
+  <button class="lb-nav lb-prev" type="button" aria-label="Imagen anterior">&#10094;</button>
+  <img id="lb-img" alt="" />
+  <button class="lb-nav lb-next" type="button" aria-label="Imagen siguiente">&#10095;</button>
+  <div class="lb-count" id="lb-count" aria-live="polite"></div>
+</div>
+
+<style>
+  #lb {
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 17, 13, .92);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 2rem;
+    cursor: zoom-out;
+  }
+  #lb.open { display: flex; }
+  #lb[hidden] { display: none; }
+
+  #lb img {
+    max-width: 92vw;
+    max-height: 90vh;
+    border-radius: 4px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, .5);
+  }
+
+  #lb .close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    color: #f6f1e7;
+    font-size: 2.2rem;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+    background: none;
+    border: none;
+    padding: 0 .5rem;
+  }
+
+  #lb .lb-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, .3);
+    border: 1px solid rgba(246, 241, 231, .45);
+    color: #f6f1e7;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .2s, border-color .2s;
+    z-index: 2;
+  }
+  #lb .lb-nav:hover { background: var(--marron); border-color: var(--marron); }
+  #lb .lb-prev { left: 1.2rem; }
+  #lb .lb-next { right: 1.2rem; }
+
+  #lb .close:focus-visible,
+  #lb .lb-nav:focus-visible { outline: 2px solid var(--dorado-claro); outline-offset: 2px; }
+
+  #lb .lb-count {
+    position: absolute;
+    bottom: 1.1rem;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #cabfa9;
+    font-size: .9rem;
+    letter-spacing: .06em;
+  }
+
+  @media (max-width: 760px) {
+    #lb .lb-nav { width: 42px; height: 42px; font-size: 1.25rem; }
+    #lb .lb-prev { left: .4rem; }
+    #lb .lb-next { right: .4rem; }
+  }
+</style>
+
+<script>
+  const lb    = document.getElementById('lb') as HTMLElement;
+  const lbImg = document.getElementById('lb-img') as HTMLImageElement;
+  const cuenta = document.getElementById('lb-count') as HTMLElement;
+  const btnCerrar = lb?.querySelector('.close') as HTMLButtonElement;
+  const btnPrev = lb?.querySelector('.lb-prev') as HTMLButtonElement;
+  const btnNext = lb?.querySelector('.lb-next') as HTMLButtonElement;
+
+  if (lb && lbImg) {
+    type Item = { src: string; alt: string };
+    let grupo: Item[] = [];
+    let i = 0;
+    let origen: HTMLElement | null = null;
+
+    const enfocables = () => [btnPrev, btnNext, btnCerrar].filter(Boolean);
+
+    function mostrar(n: number) {
+      if (!grupo.length) return;
+      i = (n + grupo.length) % grupo.length;          // recorre en bucle
+      lbImg.src = grupo[i].src;
+      lbImg.alt = grupo[i].alt;
+      cuenta.textContent = `${i + 1} / ${grupo.length}`;
+    }
+
+    function abrir(img: HTMLImageElement) {
+      const caja = img.closest('[data-galeria]');
+      const imgs = caja
+        ? Array.from(caja.querySelectorAll('img'))
+        : [img];
+
+      grupo = imgs.map((x) => ({
+        src: (x as HTMLImageElement).dataset.full || (x as HTMLImageElement).currentSrc || (x as HTMLImageElement).src,
+        alt: (x as HTMLImageElement).alt || '',
+      }));
+
+      origen = img;
+      lb.hidden = false;
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';        // bloquea el scroll de fondo
+      mostrar(Math.max(0, imgs.indexOf(img)));
+      btnCerrar?.focus();                             // el foco entra al diálogo
+    }
+
+    function cerrar() {
+      lb.classList.remove('open');
+      lb.hidden = true;
+      document.body.style.overflow = '';
+      origen?.focus();                                // el foco vuelve al origen
+      origen = null;
+    }
+
+    const navegar = (d: number) => mostrar(i + d);
+
+    document.querySelectorAll<HTMLImageElement>('[data-galeria] img').forEach((im) => {
+      im.addEventListener('click', () => abrir(im));
+    });
+
+    lb.addEventListener('click', (e) => { if (e.target === lb) cerrar(); });
+    btnCerrar?.addEventListener('click', (e) => { e.stopPropagation(); cerrar(); });
+    btnPrev?.addEventListener('click', (e) => { e.stopPropagation(); navegar(-1); });
+    btnNext?.addEventListener('click', (e) => { e.stopPropagation(); navegar(1); });
+
+    document.addEventListener('keydown', (e) => {
+      if (lb.hidden) return;
+      if (e.key === 'Escape') cerrar();
+      else if (e.key === 'ArrowLeft') navegar(-1);
+      else if (e.key === 'ArrowRight') navegar(1);
+      else if (e.key === 'Tab') {
+        // atrapa el foco dentro del visor
+        const f = enfocables();
+        if (!f.length) return;
+        const pos = f.indexOf(document.activeElement as HTMLButtonElement);
+        const sig = e.shiftKey ? pos - 1 : pos + 1;
+        e.preventDefault();
+        f[(sig + f.length) % f.length].focus();
+      }
+    });
+
+    // Deslizar en celular
+    let x0 = 0;
+    lb.addEventListener('touchstart', (e) => { x0 = e.changedTouches[0].clientX; }, { passive: true });
+    lb.addEventListener('touchend', (e) => {
+      const dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 40) navegar(dx < 0 ? 1 : -1);
+    }, { passive: true });
+  }
+</script>

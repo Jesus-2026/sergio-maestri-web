@@ -1,0 +1,22 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import TituloSeccion from './TituloSeccion.astro';
+import BloqueLista from './BloqueLista.astro';
+
+const a = (await getEntry('ajustes', 'sitio'))!.data;
+const bloques = (await getCollection('blog')).sort((x, y) => x.data.orden - y.data.orden);
+---
+<section class="alt" id="blog">
+  <div class="wrap">
+    <TituloSeccion antetitulo={a.blogAntetitulo} titulo={a.blogTitulo} />
+
+    {bloques.map((b) => <BloqueLista titulo={b.data.titulo} items={b.data.items} />)}
+
+    {a.blogPie && <p class="pie">{a.blogPie}</p>}
+  </div>
+</section>
+
+<style>
+  /* Antes era un style="" en línea sobre el <p> */
+  .pie { text-align: center; font-style: italic; color: var(--tinta-suave); margin-top: 1.5rem; }
+</style>

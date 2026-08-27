@@ -1,0 +1,91 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection, getEntry, render } from 'astro:content';
+import TituloSeccion from './TituloSeccion.astro';
+import Galeria from './Galeria.astro';
+import { inline } from '../lib/markdown';
+
+const a = (await getEntry('ajustes', 'sitio'))!.data;
+const libros = (await getCollection('libros')).sort((x, y) => x.data.orden - y.data.orden);
+const otras = (await getEntry('otras', 'publicaciones'))!.data;
+const galeria = (await getEntry('galerias', 'otras'))!.data;
+
+// La sinopsis vive en el cuerpo markdown de cada libro
+const conSinopsis = await Promise.all(
+  libros.map(async (l) => ({ ...l, Content: (await render(l)).Content }))
+);
+---
+<section class="alt" id="obras">
+  <div class="wrap-wide">
+    <TituloSeccion antetitulo={a.obrasAntetitulo} titulo={a.obrasTitulo} />
+
+    <div class="obras-grid" data-galeria>
+      {conSinopsis.map(({ data, Content }) => (
+        <article class="obra">
+          <div class="cover">
+            <Image src={data.portada} alt={data.alt} data-full={data.portada.src} widths={[300, 600]} sizes="(max-width:760px) 90vw, 300px" loading="lazy" />
+          </div>
+          <div class="body">
+            <span class="tipo">{data.tipo}</span>
+            <h3>{data.titulo}</h3>
+            <div class="meta">{data.meta}</div>
+            <Content />
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="otras">
+      <h3>{otras.titulo}</h3>
+      <p class="sub">{otras.subtitulo}</p>
+      <ul>
+        {otras.items.map((t) => <li set:html={inline(t)} />)}
+      </ul>
+      <Galeria imagenes={galeria.imagenes} clase="mag-grid" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .obras-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.8rem; }
+
+  .obra {
+    background: #fff;                       /* .alt .obra del CSS original */
+    border: 1px solid var(--linea);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px var(--sombra);
+    transition: transform .2s, box-shadow .2s;
+    display: flex;
+    flex-direction: column;
+  }
+  .obra:hover { transform: translateY(-4px); box-shadow: 0 8px 22px var(--sombra); }
+
+  .cover { aspect-ratio: 3 / 4; overflow: hidden; background: #ece3d2; cursor: pointer; }
+  .cover :global(img) { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+  .obra:hover .cover :global(img) { transform: scale(1.04); }
+
+  .body { padding: 1.4rem; }
+
+  .tipo {
+    display: inline-block;
+    font-size: .65rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #fff;
+    background: var(--marron);
+    padding: .18rem .6rem;
+    border-radius: 2px;
+    margin-bottom: .6rem;
+  }
+
+  .obra h3 { font-size: 1.45rem; margin-bottom: .15rem; }
+  .obra .meta { font-size: .85rem; color: var(--dorado); font-style: italic; margin-bottom: .7rem; }
+  .body :global(p) { font-size: .96rem; color: var(--tinta-suave); }
+
+  .otras { margin-top: 3.5rem; }
+  .otras h3 { font-size: 1.9rem; text-align: center; margin-bottom: .5rem; }
+  .otras .sub { text-align: center; color: var(--tinta-suave); font-style: italic; margin-bottom: 1.8rem; }
+  .otras ul { list-style: none; max-width: 760px; margin: 0 auto 2.2rem; }
+  .otras li { padding: .55rem 0; border-bottom: 1px solid var(--linea); font-size: 1rem; color: var(--tinta-suave); }
+</style>

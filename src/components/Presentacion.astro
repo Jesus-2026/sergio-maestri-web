@@ -1,0 +1,68 @@
+---
+import { Image } from 'astro:assets';
+import { getEntry, render } from 'astro:content';
+import TituloSeccion from './TituloSeccion.astro';
+
+const entrada = await getEntry('secciones', 'presentacion')!;
+const d = entrada.data;
+const { Content } = await render(entrada);
+---
+<section class="presentacion">
+  <div class="wrap">
+    <TituloSeccion antetitulo={d.antetitulo} titulo={d.titulo} />
+
+    <div class="lead">
+      <figure class="portrait">
+        {d.retrato && <Image src={d.retrato} alt={d.retratoAlt ?? ''} widths={[240, 480]} sizes="240px" loading="lazy" />}
+        <figcaption>{d.epigrafe}</figcaption>
+      </figure>
+      <div class="txt">
+        {d.parrafosLead?.map((p) => <p>{p}</p>)}
+      </div>
+    </div>
+
+    {d.cita && <blockquote>{d.cita}</blockquote>}
+
+    <div class="cuerpo"><Content /></div>
+
+    <p class="firma">{d.firma}</p>
+  </div>
+</section>
+
+<style>
+  .lead { display: flex; gap: 2.4rem; align-items: flex-start; flex-wrap: wrap; }
+
+  .portrait { flex: 0 0 240px; max-width: 240px; }
+  .portrait :global(img) {
+    border-radius: 4px;
+    box-shadow: 0 6px 20px var(--sombra);
+    border: 4px solid #fff;
+    width: 100%;
+    height: auto;
+  }
+  .portrait figcaption {
+    text-align: center;
+    font-style: italic;
+    color: var(--tinta-suave);
+    font-size: .9rem;
+    margin-top: .6rem;
+  }
+
+  .txt { flex: 1; min-width: 300px; }
+
+  .presentacion p,
+  .cuerpo :global(p) { margin-bottom: 1.3rem; font-size: 1.1rem; }
+
+  .firma {
+    text-align: right;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7rem;
+    color: var(--marron);
+    font-style: italic;
+    margin-top: 1.5rem;
+  }
+
+  @media (max-width: 760px) {
+    .portrait { margin: 0 auto; }
+  }
+</style>

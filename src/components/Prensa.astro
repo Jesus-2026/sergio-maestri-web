@@ -1,0 +1,20 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import TituloSeccion from './TituloSeccion.astro';
+import BloqueLista from './BloqueLista.astro';
+import Galeria from './Galeria.astro';
+
+const a = (await getEntry('ajustes', 'sitio'))!.data;
+const bloques = (await getCollection('prensa')).sort((x, y) => x.data.orden - y.data.orden);
+const galeria = (await getEntry('galerias', 'prensa'))!.data;
+---
+<section id="prensa">
+  <div class="wrap">
+    <TituloSeccion antetitulo={a.prensaAntetitulo} titulo={a.prensaTitulo} />
+
+    {bloques.map((b) => <BloqueLista titulo={b.data.titulo} items={b.data.items} />)}
+
+    <h3 class="subhead">{galeria.titulo}</h3>
+    <Galeria imagenes={galeria.imagenes} nota={galeria.nota} />
+  </div>
+</section>

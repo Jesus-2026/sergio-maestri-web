@@ -1,0 +1,18 @@
+---
+import { getEntry, render } from 'astro:content';
+import TituloSeccion from './TituloSeccion.astro';
+
+const entrada = await getEntry('secciones', 'biografia')!;
+const d = entrada.data;
+const { Content } = await render(entrada);
+---
+<section class="alt" id="biografia">
+  <div class="wrap bio">
+    <TituloSeccion antetitulo={d.antetitulo} titulo={d.titulo} />
+    <Content />
+  </div>
+</section>
+
+<style>
+  .bio :global(p) { margin-bottom: 1.2rem; }
+</style>
