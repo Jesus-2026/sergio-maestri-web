@@ -16,14 +16,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* ✔ CORRECCIÓN: el header sticky (~60px) tapaba el título de la
-   sección al navegar por anclas. Sin esto, hacer clic en "Premios"
-   dejaba el encabezado escondido debajo de la barra.
-   No altera el diseño: solo corrige dónde se detiene el scroll. */
-section[id] {
-  scroll-margin-top: 5rem;
-}
-
 body {
   font-family: 'EB Garamond', Georgia, serif;
   color: var(--tinta);
