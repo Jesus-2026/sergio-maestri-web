@@ -1,0 +1,65 @@
+---
+import { getEntry } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+const a = (await getEntry('ajustes', 'sitio'))!.data;
+---
+<Base
+  titulo="Página no encontrada — Sergio Maestri"
+  descripcion="La página que buscabas no existe. Volvé al inicio del sitio de Sergio Maestri, escritor argentino."
+>
+  <section class="e404">
+    <div class="wrap">
+      <div class="section-title">
+        <small>Error 404</small>
+        <h2>Página no encontrada</h2>
+        <div class="rule"></div>
+      </div>
+
+      <blockquote>«La hoja en blanco es un desafío, un estímulo, una frustración…»</blockquote>
+
+      <p>Esta no. Esta simplemente no existe.</p>
+      <p>Puede que el enlace esté mal escrito o que la página haya cambiado de lugar.</p>
+
+      <div class="acciones">
+        <a class="btn" href="/">Volver al inicio</a>
+        <a class="btn" href="/#obras">Ver las obras</a>
+        <a class="btn" href="/#contacto">Contacto</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .e404 { min-height: 55vh; display: flex; align-items: center; }
+  .e404 .wrap { text-align: center; }
+  .e404 p { margin-bottom: 1rem; color: var(--tinta-suave); }
+
+  blockquote {
+    border-left: none;
+    border-top: 1px solid var(--linea);
+    border-bottom: 1px solid var(--linea);
+    padding: 1.2rem 0;
+    margin: 0 auto 2rem;
+    max-width: 620px;
+  }
+
+  .acciones {
+    display: flex;
+    gap: 1.2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2.5rem;
+  }
+  .btn {
+    display: inline-block;
+    padding: .6rem 1.4rem;
+    border: 1px solid var(--marron);
+    border-radius: 2px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    font-size: .78rem;
+    color: var(--marron);
+  }
+  .btn:hover { background: var(--marron); color: var(--crema); }
+</style>

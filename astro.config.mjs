@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -22,6 +22,33 @@ export default defineConfig({
 
   // Genera /biografia/index.html en vez de /biografia.html
   build: { format: 'directory' },
+
+  /* Tipografías autoalojadas.
+     Antes se cargaban desde fonts.googleapis.com con un <link>, que
+     bloquea el render: Lighthouse medía 1.830 ms de bloqueo.
+     Astro las descarga en el build, las sirve desde el propio dominio
+     y precarga los archivos exactos que la página usa.
+     Beneficio extra: se elimina la dependencia con un tercero. */
+  fonts: [
+    {
+      provider: fontProviders.google(),
+      name: 'Cormorant Garamond',
+      cssVariable: '--fuente-titulos',
+      weights: [400, 500, 600],
+      styles: ['normal', 'italic'],
+      subsets: ['latin'],
+      fallbacks: ['Georgia', 'serif'],
+    },
+    {
+      provider: fontProviders.google(),
+      name: 'EB Garamond',
+      cssVariable: '--fuente-texto',
+      weights: [400, 500],
+      styles: ['normal', 'italic'],
+      subsets: ['latin'],
+      fallbacks: ['Georgia', 'serif'],
+    },
+  ],
 
   integrations: [
     sitemap(),

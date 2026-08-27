@@ -1,5 +1,5 @@
 ---
-import { getImage } from 'astro:assets';
+import { getImage, Font } from 'astro:assets';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import DatosEstructurados from '../components/DatosEstructurados.astro';
@@ -69,13 +69,9 @@ const ogAbs = new URL(og.src, Astro.site).href;
   <meta name="twitter:description" content={descripcion} />
   <meta name="twitter:image" content={ogAbs} />
 
-  <!-- Tipografías -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap"
-    rel="stylesheet"
-  />
+  <!-- Tipografías autoalojadas: sin peticiones a terceros ni bloqueo de render -->
+  <Font cssVariable="--fuente-titulos" preload />
+  <Font cssVariable="--fuente-texto" />
 
   <!-- Datos estructurados / Schema.org -->
   <DatosEstructurados retrato={retrato.src} />

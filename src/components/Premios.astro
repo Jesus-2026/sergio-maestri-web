@@ -32,7 +32,7 @@ const galeria = (await getEntry('galerias', 'premios'))!.data;
   .premios-list { list-style: none; }
   .premio { display: flex; gap: 1.4rem; padding: 1.1rem 0; border-bottom: 1px solid var(--linea); }
   .premio .year {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--fuente-titulos);
     font-size: 1.5rem;
     color: var(--dorado);
     min-width: 70px;
