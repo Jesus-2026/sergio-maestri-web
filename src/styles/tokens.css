@@ -15,7 +15,7 @@
 
   /* Acentos */
   --marron:       #6b4f2e;   /* enlaces            6.70:1  */
-  --dorado:       #a9863f;   /* acentos            3.02:1  ⚠️ */
+  --dorado:       #7f5f26;   /* acentos    5.23 / 4.79 / 5.89  ✔ */
   --dorado-claro: #c9a86a;   /* acentos suaves             */
 
   /* Estructura */
@@ -24,18 +24,23 @@
 }
 
 /* ───────────────────────────────────────────────────────────
-   ⚠️ DEUDA DE ACCESIBILIDAD CONOCIDA — pendiente de decisión
+   Contraste corregido — 27/08/2026
    ───────────────────────────────────────────────────────────
-   --dorado (#a9863f) sobre --crema (#f6f1e7) da 3.02:1.
-   WCAG 2.1 AA exige 4.5:1 para texto menor a 18.66px.
+   --dorado pasó de #a9863f a #7f5f26. Es el valor más claro que
+   cumple WCAG 2.1 AA (4.5:1) sobre los TRES fondos del sitio:
 
-   Afecta a:
-     · .section-title small  (.72rem) — los 7 antetítulos
-     · .obra .meta           (.85rem) — año y editorial de 12 obras
+     crema    #f6f1e7  →  5.23
+     crema-2  #efe7d6  →  4.79   (secciones .alt)
+     blanco   #ffffff  →  5.89   (tarjetas de obra)
 
-   Nota: .premio .year (24px, peso 600) califica como texto
-   grande y cumple con el umbral de 3:1.
+   Un primer intento con #8a6a2a daba 4.09 sobre crema-2 y no
+   alcanzaba: los antetítulos de las secciones .alt van sobre
+   ese fondo.
 
-   Corrección disponible: #8a6a2a → 4.54:1 (cumple AA).
-   Estado: NO aplicada por decisión del cliente (25/08/2026).
+   Afectaba a 20 elementos: los antetítulos de las 7 secciones
+   (.section-title small, 11.5px) y la línea de año/editorial
+   de las 12 obras (.obra .meta, 13.6px).
+
+   --dorado-claro (#c9a86a) NO se modificó: se usa sobre el
+   fondo oscuro del hero, donde da 7.58:1 y ya cumplía.
    ─────────────────────────────────────────────────────────── */

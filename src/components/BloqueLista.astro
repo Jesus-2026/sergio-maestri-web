@@ -21,5 +21,18 @@ const { titulo, items } = Astro.props;
   }
   .prensa-block ul { list-style: none; }
   .prensa-block li { padding: .5rem 0; padding-left: 1.4rem; position: relative; }
+  /* Los enlaces se distinguían solo por color, con 1.98:1 respecto del
+     texto que los rodea. Quien no diferencia bien los colores no veía
+     que fueran enlaces. */
+  /* :global(a) es imprescindible: estos enlaces se generan desde
+     markdown con set:html, así que no reciben el atributo de scope
+     que Astro agrega a los elementos de la plantilla. Sin :global,
+     el selector nunca coincide. */
+  .prensa-block li :global(a) {
+    text-decoration: underline;
+    text-underline-offset: .18em;
+    text-decoration-thickness: 1px;
+  }
+
   .prensa-block li::before { content: "\276E"; position: absolute; left: 0; color: var(--dorado); }
 </style>

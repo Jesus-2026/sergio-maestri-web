@@ -43,6 +43,11 @@ const items = await Promise.all(
   }
   .gallery :global(img) {
     width: 100%;
+    /* Astro agrega width/height al <img> para evitar el salto de layout.
+       Ese height entra como sugerencia de presentación y le gana a
+       aspect-ratio, que es lo que deformaba la cuadrícula. height:auto
+       lo neutraliza y deja que la proporción mande. */
+    height: auto;
     aspect-ratio: 1 / 1;
     object-fit: cover;
     border-radius: 3px;
