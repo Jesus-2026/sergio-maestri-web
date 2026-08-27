@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 
 interface Props {
@@ -8,13 +8,28 @@ interface Props {
   clase?: 'gallery' | 'mag-grid';
 }
 const { imagenes, nota = '', clase = 'gallery' } = Astro.props;
+
+/* Variante grande en WebP para el visor. Antes abría el archivo
+   original crudo (hasta 167 KB en JPG); ahora pesa la mitad. */
+const items = await Promise.all(
+  imagenes.map(async ({ imagen, alt }) => ({
+    imagen,
+    alt,
+    full: (await getImage({
+      src: imagen,
+      width: Math.min(imagen.width, 1600),
+      format: 'webp',
+      quality: 82,
+    })).src,
+  }))
+);
 ---
 {/* Reemplaza fill(id, dir, prefijo, N, ext) del sitio anterior.
     La cantidad sale de la lista: ya no hay contadores fijos que
     queden desactualizados al subir una imagen desde el panel. */}
 <div class={clase} data-galeria>
-  {imagenes.map(({ imagen, alt }) => (
-    <Image src={imagen} alt={alt} data-full={imagen.src} widths={[300, 600]} sizes="(max-width:760px) 45vw, 200px" loading="lazy" />
+  {items.map(({ imagen, alt, full }) => (
+    <Image src={imagen} alt={alt} data-full={full} widths={[300, 600]} sizes="(max-width:760px) 45vw, 200px" loading="lazy" />
   ))}
 </div>
 {nota && <p class="gallery-note">{nota}</p>}

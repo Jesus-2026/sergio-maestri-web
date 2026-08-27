@@ -2,6 +2,7 @@
 titulo: "Luna de Buenos Aires"
 tipo: "Poesía y relatos"
 anio: 2019
+editorial: "Ediciones Prometeo"
 meta: "2019 · Ediciones Prometeo"
 portada: "../../assets/img/covers/luna-buenos-aires.jpg"
 alt: "Tapa de Luna de Buenos Aires"

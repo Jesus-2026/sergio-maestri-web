@@ -1,4 +1,18 @@
 ---
+nombreCompleto: "Sergio Gabriel Maestri"
+ocupacion: "Escritor"
+descripcionAutor: "Escritor argentino de poesía, novelas y cuentos. Autor de obras como 'Crónicas del doctor Winter', 'La raza de bronce' y 'Los últimos días de mi padre'."
+fechaNacimiento: "1965-02-17"
+ciudadNacimiento: "Buenos Aires"
+paisNacimiento: "AR"
+temas:
+  - "Poesía"
+  - "Novela"
+  - "Cuento"
+  - "Literatura Argentina"
+  - "Ficción"
+  - "Literatura Fantástica"
+
 heroTagline: "Poesía · Novela · Cuento"
 heroTitulo: "Sergio Maestri"
 heroFrase: "«Que las musas me encuentren trabajando»"

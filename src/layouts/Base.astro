@@ -1,28 +1,39 @@
 ---
+import { getImage } from 'astro:assets';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import DatosEstructurados from '../components/DatosEstructurados.astro';
+import heroImg from '../assets/img/hero2.png';
 import '../styles/tokens.css';
 import '../styles/global.css';
 
 interface Props {
   titulo: string;
   descripcion: string;
-  imagen?: string;
 }
+const { titulo, descripcion } = Astro.props;
 
-const {
-  titulo,
-  descripcion,
-  /* TODO Fase 4 — reemplazar por el recorte 1200×630 (<300 KB) que se
-     genera desde hero2.png. Hoy apunta al PNG de 2 MB, que es la razón
-     por la que WhatsApp no muestra previsualización. */
-  imagen = '/img/hero2.png',
-} = Astro.props;
+/* ── Imágenes sociales ────────────────────────────────────────────────
+   Antes og:image apuntaba al PNG de 1.998 KB. WhatsApp descarta las
+   previsualizaciones por encima de ~300 KB, y por eso al compartir el
+   sitio no aparecía imagen. Se recorta desde el hero, que es donde
+   está el retrato real del autor.
 
-/* Todas las URLs se derivan de `site` en astro.config.mjs.
-   Cambiar el dominio = editar una sola línea de ese archivo. */
-const canonical  = new URL(Astro.url.pathname, Astro.site).href;
-const imagenAbs  = new URL(imagen, Astro.site).href;
+   (autor.jpg NO sirve para esto: es una fotografía de una biblioteca,
+   no del autor. Se usa solo como banner decorativo en Presentación.) */
+const og = await getImage({
+  src: heroImg, width: 1200, height: 630, format: 'jpeg', quality: 82,
+});
+
+/* Retrato cuadrado para Person.image de Schema.org. La cara está en el
+   tercio izquierdo del encuadre, de ahí el position. */
+const retrato = await getImage({
+  src: heroImg, width: 800, height: 800, format: 'jpeg', quality: 82, position: 'left',
+});
+
+/* Todas las URLs derivan de `site` en astro.config.mjs */
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogAbs = new URL(og.src, Astro.site).href;
 ---
 <!DOCTYPE html>
 <html lang="es-AR">
@@ -45,7 +56,9 @@ const imagenAbs  = new URL(imagen, Astro.site).href;
   <meta property="og:site_name" content="Sergio Maestri - Escritor" />
   <meta property="og:title" content={titulo} />
   <meta property="og:description" content={descripcion} />
-  <meta property="og:image" content={imagenAbs} />
+  <meta property="og:image" content={ogAbs} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Sergio Maestri, escritor argentino" />
   <meta property="og:locale" content="es_AR" />
 
@@ -54,7 +67,7 @@ const imagenAbs  = new URL(imagen, Astro.site).href;
   <meta name="twitter:url" content={canonical} />
   <meta name="twitter:title" content={titulo} />
   <meta name="twitter:description" content={descripcion} />
-  <meta name="twitter:image" content={imagenAbs} />
+  <meta name="twitter:image" content={ogAbs} />
 
   <!-- Tipografías -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -63,6 +76,9 @@ const imagenAbs  = new URL(imagen, Astro.site).href;
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap"
     rel="stylesheet"
   />
+
+  <!-- Datos estructurados / Schema.org -->
+  <DatosEstructurados retrato={retrato.src} />
 
   <slot name="head" />
 </head>

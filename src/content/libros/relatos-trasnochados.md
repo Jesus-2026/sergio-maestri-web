@@ -2,6 +2,7 @@
 titulo: "Relatos trasnochados"
 tipo: "Cuentos"
 anio: 2023
+editorial: "Editorial Prometeo"
 meta: "2023 · Editorial Prometeo"
 portada: "../../assets/img/covers/relatos-trasnochados.jpg"
 alt: "Tapa de Relatos trasnochados"

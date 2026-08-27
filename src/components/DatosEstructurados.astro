@@ -1,0 +1,77 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+
+interface Props { retrato: string; }
+const { retrato } = Astro.props;
+
+const a = (await getEntry('ajustes', 'sitio'))!.data;
+const libros = (await getCollection('libros')).sort((x, y) => x.data.anio - y.data.anio);
+const premios = (await getCollection('premios')).sort((x, y) => x.data.anio - y.data.anio);
+
+const base = Astro.site!.href.replace(/\/$/, '');
+const url = (p = '') => `${base}/${p}`.replace(/\/$/, '') || base;
+
+/* Los premios y los libros salen de las colecciones, así que si Sergio
+   carga uno nuevo desde el panel, los datos estructurados se actualizan
+   solos. El sitio anterior listaba 3 de los 14 premios, a mano. */
+const persona = {
+  '@type': 'Person',
+  '@id': url('#persona'),
+  name: a.nombreCompleto,
+  givenName: 'Sergio',
+  familyName: 'Maestri',
+  additionalName: 'Gabriel',
+  url: url(),
+  image: new URL(retrato, Astro.site).href,
+  jobTitle: a.ocupacion,
+  description: a.descripcionAutor,
+  birthDate: a.fechaNacimiento,
+  birthPlace: {
+    '@type': 'Place',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: a.ciudadNacimiento,
+      addressCountry: a.paisNacimiento,
+    },
+  },
+  nationality: { '@type': 'Country', name: 'Argentina' },
+  email: a.email,
+  sameAs: a.redes.map((r) => r.url),
+  knowsAbout: a.temas,
+  award: premios.map((p) => `${p.data.titulo} (${p.data.anio})`),
+};
+
+const sitio = {
+  '@type': 'WebSite',
+  '@id': url('#sitio'),
+  name: `${a.heroTitulo} — ${a.ocupacion}`,
+  url: url(),
+  description: a.descripcionAutor,
+  inLanguage: 'es-AR',
+  author: { '@id': url('#persona') },
+};
+
+/* Cada obra como Book. No estaba en el sitio anterior: es lo que
+   habilita resultados enriquecidos por título de libro. */
+const obras = libros.map((l) => ({
+  '@type': 'Book',
+  name: l.data.titulo,
+  author: { '@id': url('#persona') },
+  datePublished: String(l.data.anio),
+  inLanguage: 'es-AR',
+  abstract: l.body?.trim().split('\n\n')[0] ?? '',
+  image: new URL(l.data.portada.src, Astro.site).href,
+  ...(l.data.editorial
+    ? { publisher: { '@type': 'Organization', name: l.data.editorial } }
+    : {}),
+}));
+
+const grafo = {
+  '@context': 'https://schema.org',
+  '@graph': [persona, sitio, ...obras],
+};
+
+// Evita que un "</script>" dentro del contenido cierre la etiqueta
+const json = JSON.stringify(grafo).replace(/</g, '\u003c');
+---
+<script type="application/ld+json" is:inline set:html={json} />

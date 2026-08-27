@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import { getCollection, getEntry, render } from 'astro:content';
 import TituloSeccion from './TituloSeccion.astro';
 import Galeria from './Galeria.astro';
@@ -12,7 +12,17 @@ const galeria = (await getEntry('galerias', 'otras'))!.data;
 
 // La sinopsis vive en el cuerpo markdown de cada libro
 const conSinopsis = await Promise.all(
-  libros.map(async (l) => ({ ...l, Content: (await render(l)).Content }))
+  libros.map(async (l) => ({
+    ...l,
+    Content: (await render(l)).Content,
+    // Portada grande en WebP para el visor
+    full: (await getImage({
+      src: l.data.portada,
+      width: Math.min(l.data.portada.width, 1200),
+      format: 'webp',
+      quality: 82,
+    })).src,
+  }))
 );
 ---
 <section class="alt" id="obras">
@@ -20,10 +30,10 @@ const conSinopsis = await Promise.all(
     <TituloSeccion antetitulo={a.obrasAntetitulo} titulo={a.obrasTitulo} />
 
     <div class="obras-grid" data-galeria>
-      {conSinopsis.map(({ data, Content }) => (
+      {conSinopsis.map(({ data, Content, full }) => (
         <article class="obra">
           <div class="cover">
-            <Image src={data.portada} alt={data.alt} data-full={data.portada.src} widths={[300, 600]} sizes="(max-width:760px) 90vw, 300px" loading="lazy" />
+            <Image src={data.portada} alt={data.alt} data-full={full} widths={[300, 600]} sizes="(max-width:760px) 90vw, 300px" loading="lazy" />
           </div>
           <div class="body">
             <span class="tipo">{data.tipo}</span>

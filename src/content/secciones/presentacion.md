@@ -3,7 +3,7 @@ antetitulo: "Presentación"
 titulo: "Mi mundo"
 orden: 1
 retrato: "../../assets/img/autor.jpg"
-retratoAlt: "Sergio Maestri, escritor argentino de poesía, novelas y cuentos"
+retratoAlt: "Estantes con libros de la biblioteca del autor"
 epigrafe: "Sergio Maestri"
 parrafosLead:
   - "La tarea del escritor es una ardua y estimulante batalla cotidiana, contra el tiempo, contra las adversidades, contra el sistema dominante, pero, sobre todo, contra nuestras propias limitaciones y contra el seductor arte del ocio, que nos estanca, nos aprisiona y nos demora en elucubraciones maravillosamente innecesarias y en pasatiempos absurdos y a veces delirantes."

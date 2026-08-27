@@ -2,6 +2,7 @@
 titulo: "Proceso interior"
 tipo: "Novela"
 anio: 1989
+editorial: ""
 meta: "1989 · Revisada 2025 · Autobiográfica"
 portada: "../../assets/img/covers/proceso-interior.jpg"
 alt: "Portada del libro Proceso interior de Sergio Maestri - Novela autobiográfica sobre la dictadura argentina"

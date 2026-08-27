@@ -2,6 +2,7 @@
 titulo: "Los últimos días de mi padre"
 tipo: "Novela"
 anio: 2025
+editorial: "Ediciones Prometeo"
 meta: "2025 · Ediciones Prometeo"
 portada: "../../assets/img/covers/ultimos-dias.jpg"
 alt: "Tapa de Los últimos días de mi padre"

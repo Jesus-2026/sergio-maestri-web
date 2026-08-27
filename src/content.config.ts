@@ -25,7 +25,8 @@ const libros = defineCollection({
       titulo: z.string().min(1),
       tipo: z.string().min(1),          // Novela, Poesía, Cuentos, Infantil…
       anio: z.number().int().min(1900).max(2100),
-      meta: z.string().min(1),          // línea que se muestra: "2017 · Ediciones LeE"
+      editorial: z.string().default(''),   // vacío = sin editorial conocida
+      meta: z.string().min(1),          // línea que se muestra: "2017 · Ediciones LeE"          // línea que se muestra: "2017 · Ediciones LeE"
       portada: image(),                 // validada y optimizada por Astro
       alt: z.string().min(1),           // obligatorio: sin alt no compila
       orden: z.number().int().positive(),
@@ -124,6 +125,15 @@ const secciones = defineCollection({
 const ajustes = defineCollection({
   loader: md('ajustes'),
   schema: z.object({
+    // Identidad — alimenta los datos estructurados JSON-LD
+    nombreCompleto: z.string().min(1),
+    ocupacion: z.string().min(1),
+    descripcionAutor: z.string().min(1),
+    fechaNacimiento: z.string().refine((v) => !Number.isNaN(Date.parse(v)), 'Debe ser una fecha AAAA-MM-DD'),
+    ciudadNacimiento: z.string().min(1),
+    paisNacimiento: z.string().length(2),
+    temas: z.array(z.string().min(1)).min(1),
+
     heroTagline: z.string().min(1),
     heroTitulo: z.string().min(1),
     heroFrase: z.string().min(1),

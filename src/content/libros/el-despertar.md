@@ -2,6 +2,7 @@
 titulo: "El despertar"
 tipo: "Novela"
 anio: 2026
+editorial: "Ediciones Prometeo"
 meta: "2026 · Ediciones Prometeo"
 portada: "../../assets/img/covers/el-despertar.jpg"
 alt: "Tapa de El despertar"

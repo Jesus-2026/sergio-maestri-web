@@ -2,6 +2,7 @@
 titulo: "Cuentos esotéricos"
 tipo: "Cuentos"
 anio: 2021
+editorial: "Editorial Prometeo"
 meta: "2021 · Editorial Prometeo"
 portada: "../../assets/img/covers/cuentos-esotericos.jpg"
 alt: "Tapa de Cuentos esotéricos"

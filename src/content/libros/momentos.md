@@ -2,6 +2,7 @@
 titulo: "Momentos"
 tipo: "Poesía"
 anio: 1987
+editorial: "Ediciones Prometeo"
 meta: "1987 · Ediciones Prometeo"
 portada: "../../assets/img/covers/momentos.jpg"
 alt: "Portada del libro Momentos de Sergio Maestri - Poesía"
