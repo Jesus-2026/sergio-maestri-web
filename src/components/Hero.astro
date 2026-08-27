@@ -21,6 +21,16 @@ const { tagline, titulo, frase, cta, ctaDestino } = Astro.props;
 </section>
 
 <style>
+  /* El hero es el primer elemento del documento, pero el header sticky
+     ocupa ~81px antes que él. Sin esto, hacer clic en "Inicio" desplaza
+     la página esos 81px y el header tapa la parte superior del hero.
+
+     Con un margen mayor a la altura del header, el destino calculado da
+     negativo y el navegador lo recorta a 0: el tope real de la página.
+     Se aplica SOLO al hero — las otras 6 secciones no lo llevan, porque
+     su padding de 5rem ya deja el espacio correcto. */
+  .hero { scroll-margin-top: 8rem; }
+
   .hero {
     position: relative;
     min-height: 80vh;
