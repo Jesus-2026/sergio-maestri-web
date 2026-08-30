@@ -6,15 +6,36 @@
 #  alla no existe (o al reves), el build falla y avisa.
 # ===================================================================
 
-# COMPLETAR: DecapBridge genera este bloque al registrar el sitio.
-# decapbridge.com -> Dashboard -> Add site -> copiar el YAML generado
-# y reemplazar estas lineas.
+# Autenticacion PKCE de DecapBridge.
+# Bloque generado por decapbridge.com al registrar el sitio.
 backend:
   name: git-gateway
   repo: Jesus-2026/sergio-maestri-web
   branch: main
-  identity_url: "https://decapbridge.com/sites/PENDIENTE"
-  gateway_url: "https://gateway.decapbridge.com"
+  auth_type: pkce
+  base_url: https://auth.decapbridge.com
+  auth_endpoint: /sites/5014d60e-291a-4720-a980-aed48f3c4111/pkce
+  auth_token_endpoint: /sites/5014d60e-291a-4720-a980-aed48f3c4111/token
+  gateway_url: https://gateway.decapbridge.com
+
+  # Cada commit queda firmado con quien lo hizo.
+  commit_messages:
+    create: 'Crear {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}>'
+    update: 'Actualizar {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}>'
+    delete: 'Borrar {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}>'
+    uploadMedia: 'Subir imagen "{{path}}" - {{author-name}} <{{author-login}}>'
+    deleteMedia: 'Borrar imagen "{{path}}" - {{author-name}} <{{author-login}}>'
+    openAuthoring: '{{message}} - {{author-name}} <{{author-login}}>'
+
+# Datos del usuario que devuelve PKCE.
+auth:
+  email_claim: email
+  first_name_claim: first_name
+  last_name_claim: last_name
+  avatar_url_claim: avatar_url
+
+logo_url: https://decapbridge.com/decapcms-with-bridge.svg
+site_url: https://www.sergiomaestri.com.ar
 
 locale: es
 publish_mode: simple
