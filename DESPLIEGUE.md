@@ -1,4 +1,4 @@
-# Despliegue — www.sergiomaestri.com.ar
+# Despliegue — sergiomaestri.com.ar
 
 Pasos para publicar el sitio y migrar el dominio. Seguir en orden:
 cada paso depende del anterior.
@@ -53,7 +53,7 @@ aborta antes de publicar algo mal configurado.
 ### 2.1 En Netlify
 
 ```
-Domain management → Add a domain → www.sergiomaestri.com.ar
+Domain management → Add a domain → sergiomaestri.com.ar
 ```
 
 Netlify indica los registros DNS a cargar.
@@ -79,7 +79,7 @@ La propagación tarda entre minutos y 24 horas.
 ### 2.3 Fijar el dominio principal
 
 ```
-Domain management → www.sergiomaestri.com.ar → Set as primary domain
+Domain management → Netlify agrega la raíz y la variante www automáticamente
 ```
 
 **Este paso no es opcional.** Del dominio principal sale la variable
@@ -103,14 +103,14 @@ Volver a desplegar (**Trigger deploy → Clear cache and deploy site**) y
 confirmar en el log:
 
 ```
-[seo]  canonical   https://www.sergiomaestri.com.ar/
+[seo]  canonical   https://sergiomaestri.com.ar/
 ```
 
 Y en el navegador:
 
 ```
-https://sergiomaestri.com.ar        → redirige 301 a www
-https://www.sergiomaestri.com.ar    → carga el sitio
+https://www.sergiomaestri.com.ar  → redirige 301 a la raiz
+https://sergiomaestri.com.ar      → carga el sitio
 ```
 
 ---
@@ -120,7 +120,7 @@ https://www.sergiomaestri.com.ar    → carga el sitio
 En decapbridge.com → el sitio → editar **Decap CMS login URL**:
 
 ```
-https://www.sergiomaestri.com.ar/admin/index.html
+https://sergiomaestri.com.ar/admin/index.html
 ```
 
 Probar el ingreso con `piccone.dev@gmail.com` antes de invitar a Sergio.
@@ -143,7 +143,7 @@ en NIC.ar.
 ### 4.2 Enviar el sitemap
 
 ```
-Sitemaps → https://www.sergiomaestri.com.ar/sitemap-index.xml
+Sitemaps → https://sergiomaestri.com.ar/sitemap-index.xml
 ```
 
 Es `sitemap-index.xml`, no `sitemap.xml`.

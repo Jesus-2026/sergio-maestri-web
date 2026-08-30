@@ -35,7 +35,7 @@ auth:
   avatar_url_claim: avatar_url
 
 logo_url: https://decapbridge.com/decapcms-with-bridge.svg
-site_url: https://www.sergiomaestri.com.ar
+site_url: https://sergiomaestri.com.ar
 
 locale: es
 publish_mode: simple

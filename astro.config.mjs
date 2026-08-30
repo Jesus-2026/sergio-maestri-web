@@ -11,11 +11,26 @@ import sitemap from '@astrojs/sitemap';
    Para migrar el dominio (Fase 8): cambiar esta única línea.
    Antes había 12 URLs hardcodeadas repartidas por el proyecto.
    ═══════════════════════════════════════════════════════════════════ */
-const DOMINIO_PRODUCCION = 'https://www.sergiomaestri.com.ar';
+const DOMINIO_PRODUCCION = 'https://sergiomaestri.com.ar';
 
 // En deploy previews de Netlify usa la URL temporal, así las previews
 // nunca reclaman el canonical de producción.
-const SITE = process.env.DEPLOY_PRIME_URL || DOMINIO_PRODUCCION;
+/* Netlify expone varias URLs y elegir mal tiene consecuencias reales:
+   en el primer despliegue, DEPLOY_PRIME_URL devolvio
+   main--sergio-maestri-escritor.netlify.app — la URL del branch
+   deploy — y el canonical apunto ahi en produccion.
+
+     URL               el dominio principal del sitio
+     DEPLOY_PRIME_URL  la URL propia de ese despliegue
+     CONTEXT           production | deploy-preview | branch-deploy
+
+   En produccion mandan URL o la constante. En previews se usa
+   DEPLOY_PRIME_URL para que no reclamen el canonical de produccion. */
+const esProduccion = process.env.CONTEXT === 'production';
+
+const SITE = esProduccion
+  ? (process.env.URL || DOMINIO_PRODUCCION)
+  : (process.env.DEPLOY_PRIME_URL || process.env.URL || DOMINIO_PRODUCCION);
 
 export default defineConfig({
   site: SITE,
