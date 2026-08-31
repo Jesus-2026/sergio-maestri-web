@@ -1,4 +1,4 @@
-# Despliegue — sergiomaestri.com.ar
+# Despliegue — www.sergiomaestri.com.ar
 
 Pasos para publicar el sitio y migrar el dominio. Seguir en orden:
 cada paso depende del anterior.
@@ -103,14 +103,14 @@ Volver a desplegar (**Trigger deploy → Clear cache and deploy site**) y
 confirmar en el log:
 
 ```
-[seo]  canonical   https://sergiomaestri.com.ar/
+[seo]  canonical   https://www.sergiomaestri.com.ar/
 ```
 
 Y en el navegador:
 
 ```
-https://www.sergiomaestri.com.ar  → redirige 301 a la raiz
-https://sergiomaestri.com.ar      → carga el sitio
+https://sergiomaestri.com.ar      → redirige 301 a www
+https://www.sergiomaestri.com.ar  → carga el sitio
 ```
 
 ---
@@ -120,7 +120,7 @@ https://sergiomaestri.com.ar      → carga el sitio
 En decapbridge.com → el sitio → editar **Decap CMS login URL**:
 
 ```
-https://sergiomaestri.com.ar/admin/index.html
+https://www.sergiomaestri.com.ar/admin/index.html
 ```
 
 Probar el ingreso con `piccone.dev@gmail.com` antes de invitar a Sergio.
@@ -143,7 +143,7 @@ en NIC.ar.
 ### 4.2 Enviar el sitemap
 
 ```
-Sitemaps → https://sergiomaestri.com.ar/sitemap-index.xml
+Sitemaps → https://www.sergiomaestri.com.ar/sitemap-index.xml
 ```
 
 Es `sitemap-index.xml`, no `sitemap.xml`.

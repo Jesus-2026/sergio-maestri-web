@@ -11,7 +11,7 @@ import sitemap from '@astrojs/sitemap';
    Para migrar el dominio (Fase 8): cambiar esta única línea.
    Antes había 12 URLs hardcodeadas repartidas por el proyecto.
    ═══════════════════════════════════════════════════════════════════ */
-const DOMINIO_PRODUCCION = 'https://sergiomaestri.com.ar';
+const DOMINIO_PRODUCCION = 'https://www.sergiomaestri.com.ar';
 
 // En deploy previews de Netlify usa la URL temporal, así las previews
 // nunca reclaman el canonical de producción.
