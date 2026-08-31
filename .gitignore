@@ -1,21 +1,38 @@
-# dependencias
+# ── Dependencias ─────────────────────────────────────────────
 node_modules/
 
-# salida del build
+# ── Salida y caché del build ─────────────────────────────────
 dist/
 .astro/
 
-# entorno
+# ── Netlify ──────────────────────────────────────────────────
+# La CLI de Netlify crea esta carpeta con el identificador del
+# sitio y estado local. No va al repositorio.
+.netlify/
+
+# ── Variables de entorno ─────────────────────────────────────
+# Cubre .env, .env.local, .env.production y cualquier variante.
 .env
-.env.production
+.env.*
+!.env.example
 
-# sistema
-.DS_Store
-Thumbs.db
+# Convención de Astro y Vite para archivos locales
+*.local
 
-# informes de auditoría
+# ── Informes de auditoría ────────────────────────────────────
 lh*.json
 
-# logs
+# ── Editores ─────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+
+# ── Sistema operativo ────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Registros ────────────────────────────────────────────────
 *.log
 npm-debug.log*
+yarn-error.log*
