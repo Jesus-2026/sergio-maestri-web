@@ -50,7 +50,7 @@ collections:
   - name: libros
     label: Libros
     label_singular: Libro
-    description: "Las obras publicadas que aparecen en la seccion Obras."
+    description: "Las obras publicadas que aparecen en la sección Obras."
     folder: "src/content/libros"
     create: true
     slug: "{{fields.titulo | slugify}}"
@@ -59,25 +59,25 @@ collections:
     media_folder: "/src/assets/img/covers"
     public_folder: "../../assets/img/covers"
     fields:
-      - { name: titulo, label: "Titulo", widget: string }
+      - { name: titulo, label: "Título", widget: string }
       - name: tipo
         label: "Tipo de obra"
         widget: select
-        options: ["Novela", "Poesia", "Cuentos", "Poesia y prosa", "Poesia y relatos", "Biografia", "Infantil"]
-      - { name: anio, label: "Ano", widget: number, value_type: int, min: 1900, max: 2100 }
+        options: ["Novela", "Poesía", "Cuentos", "Poesía y prosa", "Poesía y relatos", "Biografía", "Infantil"]
+      - { name: anio, label: "Año", widget: number, value_type: int, min: 1900, max: 2100 }
       - name: editorial
         label: "Editorial"
         widget: string
         required: false
         default: ""
-        hint: "Dejar vacio si la obra no tiene editorial. Se usa en los datos para Google."
+        hint: "Dejar vacío si la obra no tiene editorial. Se usa en los datos para Google."
       - name: meta
-        label: "Linea bajo el titulo"
+        label: "Línea bajo el título"
         widget: string
-        hint: "Lo que se muestra en la tarjeta. Ejemplo - 2017 . Ediciones LeE"
+        hint: "Lo que se muestra en la tarjeta. Ejemplo: 2017 · Ediciones LeE"
       - { name: portada, label: "Portada", widget: image, choose_url: false }
       - name: alt
-        label: "Descripcion de la portada"
+        label: "Descripción de la portada"
         widget: string
         hint: "Para lectores de pantalla y buscadores."
       - name: orden
@@ -91,16 +91,16 @@ collections:
   - name: premios
     label: Premios
     label_singular: Premio
-    description: "Distinciones en certamenes literarios."
+    description: "Distinciones en certámenes literarios."
     folder: "src/content/premios"
     create: true
     slug: "{{fields.orden}}-{{fields.anio}}"
     identifier_field: titulo
     sortable_fields: [orden, anio]
     fields:
-      - { name: anio, label: "Ano", widget: number, value_type: int, min: 1900, max: 2100 }
+      - { name: anio, label: "Año", widget: number, value_type: int, min: 1900, max: 2100 }
       - name: titulo
-        label: "Certamen y distincion"
+        label: "Certamen y distinción"
         widget: string
         hint: "Nombre del concurso y el premio obtenido."
       - name: detalle
@@ -108,7 +108,7 @@ collections:
         widget: string
         required: false
         default: ""
-        hint: "El poema o cuento que recibio el premio."
+        hint: "El poema o cuento que recibió el premio."
       - { name: orden, label: "Orden", widget: number, value_type: int, min: 1 }
 
   - name: prensa
@@ -121,7 +121,7 @@ collections:
     identifier_field: titulo
     sortable_fields: [orden]
     fields:
-      - { name: titulo, label: "Titulo del bloque", widget: string }
+      - { name: titulo, label: "Título del bloque", widget: string }
       - { name: orden, label: "Orden", widget: number, value_type: int, min: 1 }
       - name: items
         label: "Entradas"
@@ -140,7 +140,7 @@ collections:
     slug: "{{fields.titulo | slugify}}"
     identifier_field: titulo
     fields:
-      - { name: titulo, label: "Titulo del bloque", widget: string }
+      - { name: titulo, label: "Título del bloque", widget: string }
       - { name: orden, label: "Orden", widget: number, value_type: int, min: 1 }
       - name: items
         label: "Entradas"
@@ -152,8 +152,8 @@ collections:
           hint: "Se admite *cursiva* y [texto del enlace](https://...)"
 
   - name: galerias
-    label: "Galerias de fotos"
-    label_singular: Galeria
+    label: "Galerías de fotos"
+    label_singular: Galería
     description: "Diplomas, fotos de prensa y publicaciones en revistas."
     folder: "src/content/galerias"
     create: false
@@ -161,40 +161,40 @@ collections:
     media_folder: "/src/assets/img/galerias"
     public_folder: "../../assets/img/galerias"
     fields:
-      - { name: titulo, label: "Titulo de la galeria", widget: string }
+      - { name: titulo, label: "Título de la galería", widget: string }
       - { name: nota, label: "Nota al pie", widget: string, required: false, default: "" }
       - name: imagenes
-        label: "Imagenes"
+        label: "Imágenes"
         label_singular: "Imagen"
         widget: list
         summary: "{{fields.alt}}"
         fields:
           - { name: imagen, label: "Imagen", widget: image, choose_url: false }
           - name: alt
-            label: "Descripcion"
+            label: "Descripción"
             widget: string
-            hint: "Que se ve en la foto. Sirve para lectores de pantalla y buscadores."
+            hint: "Qué se ve en la foto. Sirve para lectores de pantalla y buscadores."
 
   - name: secciones
-    label: "Textos de seccion"
-    description: "La presentacion y la biografia."
+    label: "Textos de sección"
+    description: "La presentación y la biografía."
     folder: "src/content/secciones"
     create: false
     identifier_field: titulo
     media_folder: "/src/assets/img"
     public_folder: "../../assets/img"
     fields:
-      - { name: antetitulo, label: "Antetitulo", widget: string }
-      - { name: titulo, label: "Titulo", widget: string }
+      - { name: antetitulo, label: "Antetítulo", widget: string }
+      - { name: titulo, label: "Título", widget: string }
       - { name: orden, label: "Orden", widget: number, value_type: int, min: 1 }
       - { name: retrato, label: "Imagen", widget: image, required: false, choose_url: false }
-      - { name: retratoAlt, label: "Descripcion de la imagen", widget: string, required: false }
-      - { name: epigrafe, label: "Epigrafe", widget: string, required: false }
+      - { name: retratoAlt, label: "Descripción de la imagen", widget: string, required: false }
+      - { name: epigrafe, label: "Epígrafe", widget: string, required: false }
       - name: parrafosLead
-        label: "Parrafos junto a la imagen"
+        label: "Párrafos junto a la imagen"
         widget: list
         required: false
-        field: { name: parrafo, label: "Parrafo", widget: text }
+        field: { name: parrafo, label: "Párrafo", widget: text }
       - { name: cita, label: "Cita destacada", widget: text, required: false }
       - { name: firma, label: "Firma", widget: string, required: false }
       - { name: body, label: "Texto", widget: markdown }
@@ -203,15 +203,15 @@ collections:
     label: "Otras publicaciones"
     files:
       - name: publicaciones
-        label: "Revistas y antologias"
+        label: "Revistas y antologías"
         file: "src/content/otras/publicaciones.md"
         fields:
-          - { name: titulo, label: "Titulo", widget: string }
+          - { name: titulo, label: "Título", widget: string }
           - { name: subtitulo, label: "Subtitulo", widget: string, required: false, default: "" }
           - name: items
             label: "Publicaciones"
             widget: list
-            field: { name: item, label: "Publicacion", widget: text }
+            field: { name: item, label: "Publicación", widget: text }
 
   - name: ajustes
     label: "Ajustes del sitio"
@@ -223,10 +223,10 @@ collections:
           - { name: heroTagline, label: "Bajada de portada", widget: string }
           - { name: heroTitulo, label: "Nombre en la portada", widget: string }
           - { name: heroFrase, label: "Frase de la portada", widget: string }
-          - { name: heroCta, label: "Texto del boton", widget: string }
-          - { name: heroCtaDestino, label: "Destino del boton", widget: string, default: "#obras" }
-          - { name: contactoAntetitulo, label: "Contacto - antetitulo", widget: string }
-          - { name: contactoTitulo, label: "Contacto - titulo", widget: string }
+          - { name: heroCta, label: "Texto del botón", widget: string }
+          - { name: heroCtaDestino, label: "Destino del botón", widget: string, default: "#obras" }
+          - { name: contactoAntetitulo, label: "Contacto — antetítulo", widget: string }
+          - { name: contactoTitulo, label: "Contacto — título", widget: string }
           - { name: contactoIntro, label: "Contacto - texto", widget: text }
           - { name: email, label: "Email de contacto", widget: string }
           - name: redes
@@ -237,21 +237,21 @@ collections:
               - { name: nombre, label: "Nombre", widget: string }
               - { name: url, label: "Enlace", widget: string }
           - { name: nombreCompleto, label: "Nombre completo", widget: string }
-          - { name: ocupacion, label: "Ocupacion", widget: string }
-          - { name: descripcionAutor, label: "Descripcion para buscadores", widget: text }
-          - { name: fechaNacimiento, label: "Fecha de nacimiento", widget: string, hint: "Formato AAAA-MM-DD" }
+          - { name: ocupacion, label: "Ocupación", widget: string }
+          - { name: descripcionAutor, label: "Descripción para buscadores", widget: text }
+          - { name: fechaNacimiento, label: "Fecha de nacimiento", widget: string, hint: "Formato AAAA-MM-DD (por ejemplo 1965-02-17)" }
           - { name: ciudadNacimiento, label: "Ciudad de nacimiento", widget: string }
-          - { name: paisNacimiento, label: "Pais (2 letras)", widget: string, default: "AR" }
+          - { name: paisNacimiento, label: "País (2 letras)", widget: string, default: "AR" }
           - name: temas
             label: "Temas sobre los que escribe"
             widget: list
             field: { name: tema, label: "Tema", widget: string }
-          - { name: premiosAntetitulo, label: "Premios - antetitulo", widget: string }
-          - { name: premiosTitulo, label: "Premios - titulo", widget: string }
-          - { name: obrasAntetitulo, label: "Obras - antetitulo", widget: string }
-          - { name: obrasTitulo, label: "Obras - titulo", widget: string }
-          - { name: prensaAntetitulo, label: "Prensa - antetitulo", widget: string }
-          - { name: prensaTitulo, label: "Prensa - titulo", widget: string }
-          - { name: blogAntetitulo, label: "Blog - antetitulo", widget: string }
-          - { name: blogTitulo, label: "Blog - titulo", widget: string }
+          - { name: premiosAntetitulo, label: "Premios — antetítulo", widget: string }
+          - { name: premiosTitulo, label: "Premios — título", widget: string }
+          - { name: obrasAntetitulo, label: "Obras — antetítulo", widget: string }
+          - { name: obrasTitulo, label: "Obras — título", widget: string }
+          - { name: prensaAntetitulo, label: "Prensa — antetítulo", widget: string }
+          - { name: prensaTitulo, label: "Prensa — título", widget: string }
+          - { name: blogAntetitulo, label: "Blog — antetítulo", widget: string }
+          - { name: blogTitulo, label: "Blog — título", widget: string }
           - { name: blogPie, label: "Blog - texto al pie", widget: string, required: false, default: "" }
