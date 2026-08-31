@@ -71,9 +71,9 @@ const politicaAdmin = [
   "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com",
   "style-src 'self' 'unsafe-inline' https://unpkg.com",
   "font-src 'self' data: https://unpkg.com",
-  "img-src 'self' data: blob: https://decapbridge.com https://avatars.githubusercontent.com https://raw.githubusercontent.com",
-  "connect-src 'self' https://api.github.com https://auth.decapbridge.com https://decapbridge.com https://gateway.decapbridge.com https://unpkg.com",
-  "form-action 'self' https://auth.decapbridge.com https://decapbridge.com",
+  "img-src 'self' data: blob: https://*.decapbridge.com https://decapbridge.com https://avatars.githubusercontent.com https://raw.githubusercontent.com",
+  "connect-src 'self' blob: data: https://api.github.com https://*.decapbridge.com https://decapbridge.com https://unpkg.com",
+  "form-action 'self' https://*.decapbridge.com https://decapbridge.com",
   'upgrade-insecure-requests',
 ].join('; ');
 
