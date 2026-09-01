@@ -125,6 +125,18 @@ const secciones = defineCollection({
 const ajustes = defineCollection({
   loader: md('ajustes'),
   schema: z.object({
+    // SEO — lo que ve Google y lo que se comparte en redes
+    tituloSeo: z.string().min(20).max(70),
+    descripcionSeo: z.string().min(70).max(160),
+    nombreSitio: z.string().min(1),
+    heroAlt: z.string().min(1),
+    ogImagenAlt: z.string().min(1),
+
+    // Marca visible
+    marcaNombre: z.string().min(1),
+    marcaBajada: z.string().min(1),
+    pieLinea: z.string().min(1),
+
     // Identidad — alimenta los datos estructurados JSON-LD
     nombreCompleto: z.string().min(1),
     ocupacion: z.string().min(1),

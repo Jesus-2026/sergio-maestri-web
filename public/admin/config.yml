@@ -220,6 +220,26 @@ collections:
         label: "Portada, contacto y datos del autor"
         file: "src/content/ajustes/sitio.md"
         fields:
+          - name: tituloSeo
+            label: "Título en Google"
+            widget: string
+            hint: "Lo primero que se lee en el buscador. Entre 20 y 70 caracteres."
+          - name: descripcionSeo
+            label: "Descripción en Google"
+            widget: text
+            hint: "El párrafo que aparece debajo del título en el buscador. Entre 70 y 160 caracteres."
+          - name: heroAlt
+            label: "Descripción de la foto de portada"
+            widget: string
+            hint: "Qué se ve en la foto grande del inicio. La leen Google y los lectores de pantalla."
+          - name: ogImagenAlt
+            label: "Descripción de la imagen al compartir"
+            widget: string
+            hint: "Se usa cuando alguien comparte el sitio por WhatsApp o redes."
+          - { name: nombreSitio, label: "Nombre del sitio al compartir", widget: string }
+          - { name: marcaNombre, label: "Nombre en el encabezado", widget: string }
+          - { name: marcaBajada, label: "Bajada del encabezado", widget: string }
+          - { name: pieLinea, label: "Línea del pie de página", widget: text }
           - { name: heroTagline, label: "Bajada de portada", widget: string }
           - { name: heroTitulo, label: "Nombre en la portada", widget: string }
           - { name: heroFrase, label: "Frase de la portada", widget: string }

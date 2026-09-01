@@ -13,8 +13,10 @@ import Lightbox from '../components/Lightbox.astro';
 
 const a = (await getEntry('ajustes', 'sitio'))!.data;
 
-const titulo      = 'Sergio Maestri — Escritor Argentino | Poesía, Novela y Cuento';
-const descripcion = 'Sitio oficial de Sergio Maestri, escritor argentino. Poesía, novela y cuento. Biografía, obras, premios y prensa.';
+/* El titulo y la descripcion son los dos textos de mayor peso para
+   Google. Viven en Ajustes del sitio para que sean editables. */
+const titulo      = a.tituloSeo;
+const descripcion = a.descripcionSeo;
 ---
 
 <Base titulo={titulo} descripcion={descripcion}>
@@ -28,6 +30,7 @@ const descripcion = 'Sitio oficial de Sergio Maestri, escritor argentino. Poesí
     frase={a.heroFrase}
     cta={a.heroCta}
     ctaDestino={a.heroCtaDestino}
+    alt={a.heroAlt}
   />
 
   <Presentacion />

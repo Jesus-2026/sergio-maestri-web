@@ -4,6 +4,10 @@
  * Las anclas apuntan a las secciones del one-page (Opción A):
  * el clic hace scroll suave, no navega a otra URL.
  */
+import { getEntry } from 'astro:content';
+
+const a = (await getEntry('ajustes', 'sitio'))!.data;
+
 const enlaces = [
   { href: '#inicio',    texto: 'Inicio'    },
   { href: '#biografia', texto: 'Biografía' },
@@ -17,7 +21,7 @@ const enlaces = [
 
 <header class="nav">
   <div class="nav-inner">
-    <div class="brand">Sergio Maestri<small>Escritor</small></div>
+    <div class="brand">{a.marcaNombre}<small>{a.marcaBajada}</small></div>
 
     <button
       class="menu-btn"

@@ -1,13 +1,16 @@
 ---
 // El año se calcula en el BUILD, no en el navegador.
 // Antes era JavaScript en cliente (index.html:516).
+import { getEntry } from 'astro:content';
+
+const a = (await getEntry('ajustes', 'sitio'))!.data;
 const anio = new Date().getFullYear();
 ---
 
 <footer>
-  <div class="brand-f">Sergio Maestri</div>
-  <p class="linea">Escritor · Poesía, novela y cuento · Buenos Aires, Argentina</p>
-  <p>© {anio} Sergio Maestri. Todos los derechos reservados.</p>
+  <div class="brand-f">{a.marcaNombre}</div>
+  <p class="linea">{a.pieLinea}</p>
+  <p>© {anio} {a.marcaNombre}. Todos los derechos reservados.</p>
 </footer>
 
 <style>

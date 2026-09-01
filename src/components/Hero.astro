@@ -4,9 +4,9 @@ import heroImg from '../assets/img/hero2.png';
 
 interface Props {
   tagline: string; titulo: string; frase: string;
-  cta: string; ctaDestino: string;
+  cta: string; ctaDestino: string; alt: string;
 }
-const { tagline, titulo, frase, cta, ctaDestino } = Astro.props;
+const { tagline, titulo, frase, cta, ctaDestino, alt } = Astro.props;
 
 /* FASE 4 — El hero pasó de background-image en CSS a <img> real.
    Motivo: como fondo CSS no admite srcset ni precarga, y el navegador
@@ -26,7 +26,7 @@ const { tagline, titulo, frase, cta, ctaDestino } = Astro.props;
     fallbackFormat="jpeg"
     widths={[640, 960, 1280, 1672]}
     sizes="100vw"
-    alt="Sergio Maestri, escritor argentino, en su biblioteca"
+    alt={alt}
     class="hero-img"
     pictureAttributes={{ class: 'hero-pic' }}
     loading="eager"

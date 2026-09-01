@@ -22,6 +22,11 @@ dist/
 # ── Informes de auditoría ────────────────────────────────────
 lh*.json
 
+# ── Archivos temporales de Office ────────────────────────────
+# Word crea ~$nombre.docx mientras un documento esta abierto.
+~$*
+*.tmp
+
 # ── Editores ─────────────────────────────────────────────────
 .vscode/
 .idea/

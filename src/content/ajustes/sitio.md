@@ -1,4 +1,13 @@
 ---
+tituloSeo: "Sergio Maestri — Escritor Argentino | Poesía, Novela y Cuento"
+descripcionSeo: "Sitio oficial de Sergio Maestri, escritor argentino. Poesía, novela y cuento. Biografía, obras, premios y prensa."
+nombreSitio: "Sergio Maestri - Escritor"
+heroAlt: "Sergio Maestri, escritor argentino, en su biblioteca"
+ogImagenAlt: "Sergio Maestri, escritor argentino"
+marcaNombre: "Sergio Maestri"
+marcaBajada: "Escritor"
+pieLinea: "Escritor · Poesía, novela y cuento · Buenos Aires, Argentina"
+
 nombreCompleto: "Sergio Gabriel Maestri"
 ocupacion: "Escritor"
 descripcionAutor: "Escritor argentino de poesía, novelas y cuentos. Autor de obras como 'Crónicas del doctor Winter', 'La raza de bronce' y 'Los últimos días de mi padre'."
