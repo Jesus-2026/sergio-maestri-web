@@ -1,5 +1,5 @@
 ---
-titulo: Crónicas del doctor Winte
+titulo: Crónicas del doctor Winter
 tipo: Novela
 anio: 2017
 editorial: Ediciones LeE
