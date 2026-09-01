@@ -8,10 +8,10 @@ items:
   - Soneto «Creencias» en la revista *Almafuerte* (1994).
   - Cuatro poemas y dos cuentos de ficción en antología poética (1996).
   - Publicaciones en *Trama*, periódico de artes, letras y ciencias (1997/98).
-  - 'Boletín de la Academia Virtual del Lunfardo y el Tango: «Fulera suerte»
+  - "Boletín de la Academia Virtual del Lunfardo y el Tango: «Fulera suerte»
     (sept. 2018, n.º 22), «Los fantasmas del café Tortoni» (feb. 2021, n.º 58),
     «Avenida Corrientes» (abr. 2022, n.º 73), «Barrio porteño» (feb. 2023, n.º
-    83), el relato «La tumba de Carlos Gardel» (nov. 2024, n.º 104), "Perfumes
-    de la infancia" (jun. 2026, n.° 123) y el relato "El ángel del fileteado"
-    (jul. 2026, n.° 124).'
+    83), el relato «La tumba de Carlos Gardel» (nov. 2024, n.º 104), «Perfumes
+    de la infancia» (jun. 2026, n.° 123) y el relato «El ángel del fileteado»
+    (jul. 2026, n.° 124)."
 ---
