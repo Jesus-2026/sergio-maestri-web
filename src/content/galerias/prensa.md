@@ -49,4 +49,6 @@ imagenes:
     alt: Presentación Winter, contestando preguntas
   - imagen: ../../assets/img/galerias/img-20190504-wa0035.jpg
     alt: Feria del Libro de Bs As - Firmando ejemplares de La raza de bronce
+  - imagen: ../../assets/img/galerias/img-20190504-wa0018.jpg
+    alt: Presentación Raza de bonce en Feria del libro
 ---
