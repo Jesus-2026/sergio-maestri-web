@@ -43,4 +43,6 @@ imagenes:
     alt: Presentación Winter entre amigos
   - imagen: ../../assets/img/galerias/winter-con-noe-claudia-y-otras.jpg
     alt: Presentación Winter, con amigos
+  - imagen: ../../assets/img/galerias/dsc_8531.jpg
+    alt: Presentación de Winter, ejemplares
 ---
