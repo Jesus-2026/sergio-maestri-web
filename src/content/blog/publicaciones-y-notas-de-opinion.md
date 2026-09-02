@@ -19,4 +19,6 @@ items:
   - "«Seavien — página de escritores»:
     [leer](https://www.seavien.com/discussion/almas-en-penumbras-ciKqskfbFqCS/c\
     onversations)."
+  - "«Mentes propias — página de escritores»:
+    [leer](https://www.mentespropias.com/publicaciones/el-perfume/)."
 ---
