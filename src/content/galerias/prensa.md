@@ -56,4 +56,6 @@ imagenes:
       Luis
   - imagen: ../../assets/img/galerias/1561549330406.jpg
     alt: Presentación la Raza de bronce en Salón
+  - imagen: ../../assets/img/galerias/screenshot_2019-06-07-01-24-02-1.png
+    alt: Flyer presentación La raza de bronce en Salón Jardín del Ángel
 ---
