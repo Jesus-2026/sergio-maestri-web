@@ -41,4 +41,6 @@ imagenes:
     alt: Sergio Maestri en una presentación, encuentro o entrevista
   - imagen: ../../assets/img/galerias/winter-con-gaby-2.jpg
     alt: Presentación Winter entre amigos
+  - imagen: ../../assets/img/galerias/winter-con-noe-claudia-y-otras.jpg
+    alt: Presentación Winter, con amigos
 ---
