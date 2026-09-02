@@ -45,4 +45,6 @@ imagenes:
     alt: Presentación Winter, con amigos
   - imagen: ../../assets/img/galerias/dsc_8531.jpg
     alt: Presentación de Winter, ejemplares
+  - imagen: ../../assets/img/galerias/dsc_8568.jpg
+    alt: Presentación Winter, contestando preguntas
 ---
