@@ -15,7 +15,8 @@ items:
     [leer](https://pampeandoytangueando.com/tangueando/mitologia-tanguera-i-gar\
     del/)."
   - "«Mentes propias — página de escritores»:
-    [leer](https://www.mentespropias.com/usuarios/mis-publicaciones/)."
+    [leer](https://www.mentespropias.com/usuarios/mis-publicaciones/?mpu_view=2\
+    69140#mpu-view-269140)."
   - "«Seavien — página de escritores»:
     [leer](https://www.seavien.com/discussion/almas-en-penumbras-ciKqskfbFqCS/c\
     onversations)."
