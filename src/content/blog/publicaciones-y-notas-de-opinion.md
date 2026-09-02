@@ -14,7 +14,7 @@ items:
   - "«Mitología tanguera I — Gardel» en Pampeando y Tangueando:
     [leer](https://pampeandoytangueando.com/tangueando/mitologia-tanguera-i-gar\
     del/)."
-  - |
-    Registro de Escritores: página de autores argentinos [leer]
+  - >
+    Registro de Escritores: página de autores argentinos: [leer]
     (https://registrodeescritores.com.ar/project/sergio-gabriel-maestri/)
 ---
