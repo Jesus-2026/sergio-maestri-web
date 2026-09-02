@@ -14,4 +14,6 @@ items:
   - "«Mitología tanguera I — Gardel» en Pampeando y Tangueando:
     [leer](https://pampeandoytangueando.com/tangueando/mitologia-tanguera-i-gar\
     del/)."
+  - "«Mentes propias — página de escritores»:
+    [leer](https://www.mentespropias.com/usuarios/mis-publicaciones/)."
 ---
