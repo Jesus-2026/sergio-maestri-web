@@ -51,4 +51,7 @@ imagenes:
     alt: Feria del Libro de Bs As - Firmando ejemplares de La raza de bronce
   - imagen: ../../assets/img/galerias/img-20190504-wa0018.jpg
     alt: Presentación Raza de bonce en Feria del libro
+  - imagen: ../../assets/img/galerias/1558213914051.jpg
+    alt: Presentación de la Raza de Bronce en encuentro de Escritores Merlo - San
+      Luis
 ---
