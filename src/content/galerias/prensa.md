@@ -3,7 +3,7 @@ titulo: Galería de fotos
 nota: Presentaciones, encuentros y entrevistas. Hacé clic para ampliar y usá las
   flechas ◀ ▶ (o el teclado) para recorrerlas.
 imagenes:
-  - imagen: ../../assets/img/prensa/r01.jpg
+  - imagen: ../../assets/img/galerias/tapa-y-contratapa.jpg
     alt: Sergio Maestri en una presentación, encuentro o entrevista
   - imagen: ../../assets/img/prensa/r02.jpg
     alt: Sergio Maestri en una presentación, encuentro o entrevista
