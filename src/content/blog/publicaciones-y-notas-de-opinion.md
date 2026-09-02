@@ -16,4 +16,6 @@ items:
     del/)."
   - "«Mentes propias — página de escritores»:
     [leer](https://www.mentespropias.com/usuarios/mis-publicaciones/)."
+  - "«Seavien — página de escritores»:
+    [leer](https://www.seavien.com/my_dashboard/discussions/authored)."
 ---
