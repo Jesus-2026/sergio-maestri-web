@@ -17,5 +17,6 @@ items:
   - "«Mentes propias — página de escritores»:
     [leer](https://www.mentespropias.com/usuarios/mis-publicaciones/)."
   - "«Seavien — página de escritores»:
-    [leer](https://www.seavien.com/my_dashboard/discussions/authored)."
+    [leer](https://www.seavien.com/discussion/almas-en-penumbras-ciKqskfbFqCS/c\
+    onversations)."
 ---
