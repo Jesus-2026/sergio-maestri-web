@@ -15,6 +15,6 @@ items:
     [leer](https://pampeandoytangueando.com/tangueando/mitologia-tanguera-i-gar\
     del/)."
   - >
-    Registro de Escritores: [ver perfil]
-    (https://registrodeescritores.com.ar/project/sergio-gabriel-maestri/)
+    Registro de Escritores: [ver
+    perfil](https://registrodeescritores.com.ar/project/sergio-gabriel-maestri/)
 ---
