@@ -54,4 +54,6 @@ imagenes:
   - imagen: ../../assets/img/galerias/1558213914051.jpg
     alt: Presentación de la Raza de Bronce en encuentro de Escritores Merlo - San
       Luis
+  - imagen: ../../assets/img/galerias/1561549330406.jpg
+    alt: Presentación la Raza de bronce en Salón
 ---
