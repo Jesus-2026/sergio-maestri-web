@@ -21,4 +21,6 @@ items:
     onversations)."
   - "«Mentes propias — página de escritores»:
     [leer](https://www.mentespropias.com/publicaciones/el-perfume/)."
+  - "«Mentes propias — página de escritores»:
+    [leer](https://www.mentespropias.com/publicaciones/un-dia-desafortunado/)."
 ---
