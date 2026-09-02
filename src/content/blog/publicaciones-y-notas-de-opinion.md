@@ -16,5 +16,5 @@ items:
     del/)."
   - >
     Registro de Escritores: [ver
-    perfil](https://registrodeescritores.com.ar/project/sergio-gabriel-maestri)
+    perfil](https://registrodeescritores.com.ar/project/sergio-gabriel-maestri/)
 ---
