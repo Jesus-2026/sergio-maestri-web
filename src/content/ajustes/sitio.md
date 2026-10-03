@@ -20,12 +20,10 @@ email: sgmaestri@yahoo.com.ar
 redes:
   - nombre: Facebook
     url: https://www.facebook.com/sergiomaestri.10
-  - nombre: Instagram
-    url: https://www.instagram.com/sergiogmaestri/
-  - url: https://estrella.200-58-103-56.sslip.io/
-    nombre: Estrella Market
-  - nombre: Facebook
-    url: www.google.com
+  - nombre: Estrella Market
+    url: https://estrella.200-58-103-56.sslip.io/
+  - url: https://www.instagram.com/sergiogmaestri/
+    nombre: Instagram
 nombreCompleto: Sergio Gabriel Maestri
 ocupacion: Escritor
 descripcionAutor: Escritor argentino de poesía, novelas y cuentos. Autor de
