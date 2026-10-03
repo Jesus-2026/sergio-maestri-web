@@ -24,6 +24,8 @@ redes:
     url: https://www.instagram.com/sergiogmaestri/
   - url: https://estrella.200-58-103-56.sslip.io/
     nombre: Estrella Market
+  - nombre: Facebook
+    url: www.google.com
 nombreCompleto: Sergio Gabriel Maestri
 ocupacion: Escritor
 descripcionAutor: Escritor argentino de poesía, novelas y cuentos. Autor de
