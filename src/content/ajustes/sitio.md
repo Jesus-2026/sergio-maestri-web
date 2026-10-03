@@ -1,50 +1,51 @@
 ---
-tituloSeo: "Sergio Maestri — Escritor Argentino | Poesía, Novela y Cuento"
-descripcionSeo: "Sitio oficial de Sergio Maestri, escritor argentino. Poesía, novela y cuento. Biografía, obras, premios y prensa."
-nombreSitio: "Sergio Maestri - Escritor"
-heroAlt: "Sergio Maestri, escritor argentino, en su biblioteca"
-ogImagenAlt: "Sergio Maestri, escritor argentino"
-marcaNombre: "Sergio Maestri"
-marcaBajada: "Escritor"
-pieLinea: "Escritor · Poesía, novela y cuento · Buenos Aires, Argentina"
-
-nombreCompleto: "Sergio Gabriel Maestri"
-ocupacion: "Escritor"
-descripcionAutor: "Escritor argentino de poesía, novelas y cuentos. Autor de obras como 'Crónicas del doctor Winter', 'La raza de bronce' y 'Los últimos días de mi padre'."
-fechaNacimiento: "1965-02-17"
-ciudadNacimiento: "Buenos Aires"
-paisNacimiento: "AR"
-temas:
-  - "Poesía"
-  - "Novela"
-  - "Cuento"
-  - "Literatura Argentina"
-  - "Ficción"
-  - "Literatura Fantástica"
-
-heroTagline: "Poesía · Novela · Cuento"
-heroTitulo: "Sergio Maestri"
-heroFrase: "«Que las musas me encuentren trabajando»"
-heroCta: "Conocer su obra"
+tituloSeo: Sergio Maestri — Escritor Argentino | Poesía, Novela y Cuento
+descripcionSeo: Sitio oficial de Sergio Maestri, escritor argentino. Poesía,
+  novela y cuento. Biografía, obras, premios y prensa.
+heroAlt: Sergio Maestri, escritor argentino, en su biblioteca
+ogImagenAlt: Sergio Maestri, escritor argentino
+nombreSitio: Sergio Maestri - Escritor
+marcaNombre: Sergio Maestri
+marcaBajada: Escritor
+pieLinea: Escritor · Poesía, novela y cuento · Buenos Aires, Argentina
+heroTagline: Poesía · Novela · Cuento
+heroTitulo: Sergio Maestri
+heroFrase: «Que las musas me encuentren trabajando»
+heroCta: Conocer su obra
 heroCtaDestino: "#obras"
-
-premiosAntetitulo: "Reconocimientos"
-premiosTitulo: "Premios"
-obrasAntetitulo: "Bibliografía"
-obrasTitulo: "Obras y publicaciones"
-prensaAntetitulo: "En los medios"
-prensaTitulo: "Prensa y actividades"
-blogAntetitulo: "Notas, poemas y relatos"
-blogTitulo: "Blog"
-blogPie: "Este espacio irá creciendo con nuevos artículos, poemas y fragmentos."
-
-contactoAntetitulo: "Escribime"
-contactoTitulo: "Contacto"
+contactoAntetitulo: Escribime
+contactoTitulo: Contacto
 contactoIntro: "Para consultas, presentaciones, talleres o adquirir sus obras:"
-email: "sgmaestri@yahoo.com.ar"
+email: sgmaestri@yahoo.com.ar
 redes:
-  - nombre: "Facebook"
-    url: "https://www.facebook.com/sergiomaestri.10"
-  - nombre: "Instagram"
-    url: "https://www.instagram.com/sergiogmaestri/"
+  - nombre: Facebook
+    url: https://www.facebook.com/sergiomaestri.10
+  - nombre: Instagram
+    url: https://www.instagram.com/sergiogmaestri/
+  - url: https://estrella.200-58-103-56.sslip.io/
+    nombre: Estrella Market
+nombreCompleto: Sergio Gabriel Maestri
+ocupacion: Escritor
+descripcionAutor: Escritor argentino de poesía, novelas y cuentos. Autor de
+  obras como 'Crónicas del doctor Winter', 'La raza de bronce' y 'Los últimos
+  días de mi padre'.
+fechaNacimiento: 1965-02-17
+ciudadNacimiento: Buenos Aires
+paisNacimiento: AR
+temas:
+  - Poesía
+  - Novela
+  - Cuento
+  - Literatura Argentina
+  - Ficción
+  - Literatura Fantástica
+premiosAntetitulo: Reconocimientos
+premiosTitulo: Premios
+obrasAntetitulo: Bibliografía
+obrasTitulo: Obras y publicaciones
+prensaAntetitulo: En los medios
+prensaTitulo: Prensa y actividades
+blogAntetitulo: Notas, poemas y relatos
+blogTitulo: Blog
+blogPie: Este espacio irá creciendo con nuevos artículos, poemas y fragmentos.
 ---
