@@ -22,7 +22,7 @@ redes:
     url: https://www.facebook.com/sergiomaestri.10
   - nombre: Instagram
     url: https://www.instagram.com/sergiogmaestri/
-  - url: https://estrella.200-58-103-56.sslip.io/
+  - url: https://www.estrella.200-58-103-56.sslip.io/
     nombre: Estrella Market
 nombreCompleto: Sergio Gabriel Maestri
 ocupacion: Escritor
