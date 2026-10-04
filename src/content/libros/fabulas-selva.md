@@ -1,11 +1,11 @@
 ---
-titulo: "Fábulas de la selva misionera"
-tipo: "Infantil"
+titulo: Fábulas de la selva misionera
+tipo: Infantil
 anio: 2024
-editorial: "Ediciones Prometeo"
-meta: "2024 · Ediciones Prometeo"
-portada: "../../assets/img/covers/fabulas-selva.jpg"
-alt: "Tapa de Fábulas de la selva misionera"
+editorial: "VITRIOL Ediciones "
+meta: 2026 · VITRIOL Ediciones
+portada: ../../assets/img/covers/tapa-fábulas-de-la-selva-misionera.jpeg
+alt: Tapa de Fábulas de la selva misionera
 orden: 10
 ---
 
