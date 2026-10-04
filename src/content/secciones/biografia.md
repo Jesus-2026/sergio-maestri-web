@@ -3,7 +3,7 @@ antetitulo: Trayectoria
 titulo: Biografía
 orden: 2
 ---
-acido en la Ciudad Autónoma de Buenos Aires, un 17 de febrero de 1965, Sergio Gabriel Maestri creció en Ituzaingó, pintoresca localidad del oeste bonaerense.
+Nacido en la Ciudad Autónoma de Buenos Aires, un 17 de febrero de 1965, Sergio Gabriel Maestri creció en Ituzaingó, pintoresca localidad del oeste bonaerense.
 
 Luego de realizar sus estudios secundarios en la citada ciudad, se recibió de Técnico Superior en Administración de Recursos Humanos en Universitas —Estudios Superiores—, haciendo luego la carrera de grado de Licenciado en Administración de Recursos Humanos en la Universidad de la Marina Mercante.
 
