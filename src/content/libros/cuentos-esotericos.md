@@ -1,11 +1,11 @@
 ---
-titulo: "Cuentos esotéricos"
-tipo: "Cuentos"
-anio: 2021
-editorial: "Editorial Prometeo"
-meta: "2021 · Editorial Prometeo"
-portada: "../../assets/img/covers/cuentos-esotericos.jpg"
-alt: "Tapa de Cuentos esotéricos"
+titulo: Cuentos esotéricos
+tipo: Cuentos
+anio: 2026
+editorial: VITRIOL Editorial
+meta: 2026 · VITRIOL Editorial
+portada: ../../assets/img/covers/cuentos-esotericos-tapa-actualizada-vitriol.jpg
+alt: Tapa de Cuentos esotéricos
 orden: 8
 ---
 
