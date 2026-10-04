@@ -141,7 +141,10 @@ const ajustes = defineCollection({
     nombreCompleto: z.string().min(1),
     ocupacion: z.string().min(1),
     descripcionAutor: z.string().min(1),
-    fechaNacimiento: z.string().refine((v) => !Number.isNaN(Date.parse(v)), 'Debe ser una fecha AAAA-MM-DD'),
+    fechaNacimiento: z
+          .union([z.string(), z.date()])
+          .transform((v) => (v instanceof Date ? v.toISOString().slice(0, 10) : v))
+          .refine((v) => !Number.isNaN(Date.parse(v)), 'Debe ser una fecha AAAA-MM-DD'),
     ciudadNacimiento: z.string().min(1),
     paisNacimiento: z.string().length(2),
     temas: z.array(z.string().min(1)).min(1),
