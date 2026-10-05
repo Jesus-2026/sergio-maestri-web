@@ -14,4 +14,6 @@ items:
   - Co-conductor del programa *La educación del futuro* por Radio Mantra FM 91.9.
   - "Presentación Feria del Libro de *La raza de bronce*: [ver en
     YouTube](https://www.youtube.com/@sergiomaestri1041/community) · "
+  - "Presentación Salón del Libro Masónico de *Cuentos esotéricos*: [ver en
+    YouTube](https://www.youtube.com/@sergiomaestri1041/community) · "
 ---
