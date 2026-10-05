@@ -58,4 +58,19 @@ imagenes:
     alt: Presentación la Raza de bronce en Salón
   - imagen: ../../assets/img/galerias/screenshot_2019-06-07-01-24-02-1.png
     alt: Flyer presentación La raza de bronce en Salón Jardín del Ángel
+  - imagen: ../../assets/img/galerias/whatsapp-image-2026-10-04-at-13.33.22.jpeg
+    alt: Salón del libro Masónico 2026 - Con amigos
+  - imagen: ../../assets/img/galerias/whatsapp-image-2026-10-04-at-12.40.31-1-.jpeg
+    alt: Stand del Salón del libro masónico 2026 - VITRIOL Ediciones
+  - imagen: ../../assets/img/galerias/whatsapp-image-2026-10-04-at-12.40.31.jpeg
+    alt: Salón del Libro Masónico 2026 - Presentación de Cuentos Esotéricos y
+      Fábulas de la selva misionera
+  - imagen: ../../assets/img/galerias/whatsapp-image-2026-10-03-at-17.04.20.jpeg
+    alt: Salón del libro Masónico 2026 - Charlando con lectores
+  - imagen: ../../assets/img/galerias/whatsapp-image-2026-10-04-at-12.56.12-1-.jpeg
+    alt: Salón del libro masónico 2026 - Con hermanos
+  - imagen: ../../assets/img/galerias/whatsapp-image-2026-10-03-at-13.09.05-1-.jpeg
+    alt: Salón del libro masónico 2026 - Visitantes
+  - imagen: ../../assets/img/galerias/whatsapp-image-2026-10-04-at-12.40.30.jpeg
+    alt: Salón del libro masónico - Familia y amigos
 ---
