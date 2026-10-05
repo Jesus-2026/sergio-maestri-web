@@ -15,5 +15,5 @@ items:
   - "Presentación Feria del Libro de *La raza de bronce*: [ver en
     YouTube](https://www.youtube.com/@sergiomaestri1041/community) · "
   - "Presentación Salón del Libro Masónico de *Cuentos esotéricos*: [ver en
-    YouTube](https://www.youtube.com/@sergiomaestri1041/community) · "
+    YouTube](https://www.youtube.com/shorts/JL4JzNiOP1c) · "
 ---
