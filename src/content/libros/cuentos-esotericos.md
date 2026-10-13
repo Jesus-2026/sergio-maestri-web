@@ -2,8 +2,8 @@
 titulo: Cuentos esotéricos
 tipo: Cuentos
 anio: 2026
-editorial: VITRIOL Editorial
-meta: 2026 · VITRIOL Editorial
+editorial: VITRIOL Ediciones
+meta: 2026 · VITRIOL Ediciones
 portada: ../../assets/img/covers/cuentos-esotericos-tapa-actualizada-vitriol.jpg
 alt: Tapa de Cuentos esotéricos
 orden: 8
