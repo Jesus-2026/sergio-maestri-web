@@ -4,7 +4,7 @@ tipo: Poesía y relatos
 anio: 2026
 editorial: Orillas del Plata Ediciones
 meta: 2026 · Orillas del Plata Ediciones
-portada: ../../assets/img/covers/luna-de-buenos-aires-portada-tapa.jpg
+portada: ../../assets/img/covers/orillas_del_plata_luna_de_buenos_aires-tapa.jpg
 alt: Tapa de Luna de Buenos Aires
 orden: 7
 ---
